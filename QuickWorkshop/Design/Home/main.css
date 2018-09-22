@@ -1,19 +1,13 @@
 
 /*###### Default ######*/
-html,
-header,
-footer {
-  display: block
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 section {
-  width: 100%;
- 
+  height: 100vh;
+  width: 100%; 
 }
 .ScrollUp{
   background-image: url(img/Up.png);
@@ -83,7 +77,7 @@ nav .Topnav li {
   list-style-type: none;
   display: table-cell;
 }
-nav .Topnav li a, nav .dropLogo{
+nav .Topnav li a{
   display: block;
   text-align: center;
   color: white;
@@ -207,8 +201,7 @@ nav .Topnav li a, nav .Topnav li .LoginBoton{
 }
 .SeccionHome .LoSiContenedor .Login form .ContFormLogin .LoginCampos input, .SeccionHome .LoSiContenedor .SingUp form .ContFormSingup .SingupCampos input{
   font-size: 1em;
-  margin: 5px 20px 5px 20px;
-  
+  margin: 5px 20px 5px 20px;  
 }
 .SeccionHome .LoSiContenedor .Login form .ContFormLogin .LoginBotones, .SeccionHome .LoSiContenedor .SingUp form .ContFormSingup .SingupBotones{
   display: flex;

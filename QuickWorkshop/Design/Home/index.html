@@ -3,16 +3,15 @@
   <head>
     <meta charset="UTF-8" />
       <title>QuickGarage</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+      <link rel="stylesheet" type="text/css" href="Style.css">
       <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   </head>
   <body>
-<!--      nav-->
-    <div class="ScrollUp"></div>
+<!--      nav-->    
     <nav>
-      <div class="dropLogo"></div>
+      <div class="droplogo"></div>
       <div class="dropicon">&#9776;</div>
-      <ul class="Topnav" id="dropClick">
+      <ul class="Topnav">
         <li>
           <a id="Home">HOME</a>
         </li>
@@ -29,24 +28,23 @@
     </nav>
 <!--    login y home-->
     <section class="SeccionHome">
-      <div class="LoSiContenedor">
+      <div class="LoginContenedor">
         <div class="Login">
           <Label class="lbl">Inicio de Sesión</Label>
-          <form id="FormularioLogin">
+          <form>
             <div class="ContFormLogin">
               <div class="LoginCampos">
                 <input type="text" name="Nombre" placeholder="Email" id="EmailL" class="input-container">
                 <input type="text" name="Asunto" placeholder="Contraseña" id="PassL" class="input-container">
               </div>
-              <div class="LoginBotones">
-                <button type="submit" id="EnviaL">Iniciar Sesión</button>                
+              <div class="LoginBoton">
+                <button type="submit" >Iniciar Sesión</button>                
               </div>
               <div class="field-validation-error">Contraseña incorrecta</div>
             </div>
           </form> 
         </div>        
       </div>
-      <div class="Background"></div>
       <div class="ContenedorHome">
         <h1 class="TextoPrincipal">Bienvenido a QuickGarage</h1>
         <div class="BotonLogin">
@@ -87,13 +85,13 @@
       </div>
     </section>
 <!--    Contact-->
-    <section class="SeccionContact">
-      <div class="ContenedorContact left-side">
-        <div class="ContactIcon ">
-          <h2 class="con-tit">CONTACTENOS</h2>          
+    <section class="SeccionContact">      
+        <div class="left-side">
+        <div class="ContactTitle">
+          <h2 class="">CONTACTENOS</h2>          
         </div>
         <div class="ContactForm">
-          <form id="Formulario">
+          <form>
             <div>
               <input type="text" placeholder="Email" class="ContactItem">
               <input type="text" placeholder="Asunto" class="ContactItem">
@@ -102,15 +100,13 @@
             <button type="submit" id="Envia" class="FormEnvia">Enviar Mensaje</button>
           </form> 
         </div>
-      </div>
-      <div class="ContenedorContact right-side">
-        <iframe style = "    margin-bottom: 20em" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3976.596122640299!2d-74.10547627780198!3d4.665872891522889!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfa2b7e8800315f4d!2sUniversidad+Libre+Sede+El+Bosque%2C+Bloque+A%2C+Ingenieria!5e0!3m2!1ses!2sco!4v1537546354188" allowfullscreen></iframe>
-     
-      </div>
-      
+      </div>      
+      <div class="right-side">
+        <iframe style = "    margin-bottom: 20em" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3976.596122640299!2d-74.10547627780198!3d4.665872891522889!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfa2b7e8800315f4d!2sUniversidad+Libre+Sede+El+Bosque%2C+Bloque+A%2C+Ingenieria!5e0!3m2!1ses!2sco!4v1537546354188" allowfullscreen></iframe>     
+      </div>          
     </section>
     <!--    footer -->
-    <footer class="foot-er">
+    <footer>
         <div class="row">
           <div class="col-12">
             <label >Q</label>
@@ -120,9 +116,6 @@
         <hr class="Line">
         <p class="rights">©2018 SJGQuicks. All Rights Reserved.</p>
     </footer>
-    <!--    js section -->
-
-    <script src="/Scripts/jquery.js"></script>
-    <script src="Re-Mobile.js"></script>
+    
   </body>
 </html>

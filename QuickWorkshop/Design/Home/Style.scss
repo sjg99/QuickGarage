@@ -1,0 +1,324 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+section {
+    height: 100vh;   
+}
+nav{
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    background-color: #332d2da1;
+    .dropicon{
+        display: none;
+        font-size: 1.8em;
+        height: 40px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    .dropicon:hover{
+        cursor: pointer;
+    }
+    .droplogo{
+        width: 40px;
+        height: 40px;
+        margin: 10px;
+        float: left;
+        background-image: url(img/logo.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .Topnav {
+        display: table;
+        float: right;
+        li {
+            list-style-type: none;
+            display: table-cell;
+            a{
+                display: block;
+                text-align: center;
+                color:#ffffff;
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: lighter;
+                margin: 10px 15px 10px 15px;
+                font-family: 'Roboto', sans-serif;
+                cursor: pointer;
+            }
+            a:hover {
+                color: #a0a0a0;
+            }
+            .LoginBoton {
+                background: #da3402;
+                color: #ffffff;
+                text-decoration: none;
+                text-align: center;
+                cursor: pointer;
+                padding: 5px 35px 5px 35px;
+                margin: 10px 15px 10px 15px;
+                line-height: 30px;
+                border-radius: 3px;
+                font-size: 14px;
+                font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;                
+              } 
+        }       
+    }
+}
+.SeccionHome{
+    display: flex;      
+    background-image: url(img/fa.jpg);
+    background-attachment: fixed;
+    .ContenedorHome{  
+        margin: auto;
+        text-align: center;
+        background-color: #332d2da1;
+        border-radius: 5px;
+        padding: 30px;
+        .TextoPrincipal{  
+            font-size: 4em;
+            font-weight: lighter;
+            color: #ffffff;
+            font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+        }
+        .BotonLogin {
+            margin: 20px;
+            .LoginBoton2 {
+                background: #da3402;
+                color: #ffffff;
+                text-decoration: none;
+                text-align: center;
+                cursor: pointer;
+                padding: 10px 35px 10px 35px;
+                margin: 10px 15px 10px 15px;
+                line-height: 30px;
+                border-radius: 3px;
+                font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;                
+              }
+        }              
+    }
+    .LoginContenedor{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background-color: #000000af;
+        z-index: 2;
+        display: none;
+        opacity: 0;  
+        .Login{
+            position: absolute;
+            left: 35%;
+            top: 25%;
+            width: 30%;
+            padding: 5%;
+            margin: auto;
+            background-color:#961100b9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 5px;
+            .lbl {
+                color: #dddddd;
+                width: 100%;
+                text-align: center;
+                font-size: 2.5em;
+                padding-bottom: 30px;
+                font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+            }
+            form{
+                width: 70%;
+                display: table;
+                margin: auto;
+                .ContFormLogin{
+                    .LoginCampos{
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%; 
+                        .input-container {
+                            font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+                            color: #3a3a3a;
+                            padding: 5px;
+                            border-radius: 4px;  
+                            font-size: 1em;
+                            margin: 5px 20px 5px 20px;  
+                        }
+                    }
+                    .LoginBoton{
+                        display: flex;
+                        width: 100%;
+                        margin-top: 10%;
+                        margin-bottom: 10%;
+                        button{
+                            width: 60%;
+                            color: #ffffff;
+                            background-color: #111111;
+                            border: none;
+                            border-radius: 3px;
+                            text-align: center;
+                            text-transform: uppercase;
+                            opacity: .65;
+                            font-size: .95em;
+                            line-height: 30px;
+                            padding: 7px;
+                            margin: 2% 5% 2% 20%;
+                            font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+                            cursor: pointer;                            
+                        }
+                    }
+                    .field-validation-error {
+                        text-align: center;
+                        font-size: .875rem;
+                        padding: 5%;
+                        color: #ffd000;                        
+                        font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+                    }
+                }
+            }            
+        }      
+    }
+} 
+.SeccionAbout{
+    background-color: #ffffff;
+    display: flex;
+    .ContenedorAbout {
+        width: 100%;
+        margin: auto;
+        align-items: center;
+        .Fila {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            .Columna {
+                width: 33.33%;
+                .box {
+                    text-align: center;
+                    margin: 24px;
+                    padding: 36px 24px 40px 24px;
+                    .ContIconos{
+                        .IconosExtremos {
+                            height: 80px;
+                            width: 80px;
+                            opacity: 0.7;
+                            margin-top: 1.5em;
+                        }
+                        .IconoMedio {
+                            height: 60px;
+                            width: 60px;
+                            opacity: 0.7;
+                            margin-top: 1.5em;                            
+                        }
+                    }
+                    .ParrafoAbout {
+                        line-height: 1.85714286em;
+                        font-size: 15px;
+                        font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+                        color: #64554e;
+                        margin-top: 2.5em;
+                        margin-bottom: 1.85714286em;
+                    }
+                    .LearnMore {
+                        font-size: 0.7em;
+                        color: #e27a4a;
+                        font-weight: 700;
+                        font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }    
+} 
+.SeccionContact{
+    background-color: #dfdcd9;
+    display: flex;
+    flex-wrap: wrap;    
+    justify-content: center;  
+    align-self: center;              
+    .left-side{        
+        width: 50%;
+        height: 100vh;
+        padding: 10%;
+        .ContactTitle{
+            margin: auto;
+            h2 {
+                color: #535353;  
+                font-weight: 500;
+                font-family: 'Oswald','Raleway','Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+                font-size: 50px;
+                line-height: 32px;
+                margin-bottom: 5%;
+            }                
+        }
+       .ContactForm{
+            margin-top: 50px;
+            form{
+                div{
+                    display: flex;
+                    flex-direction: column;
+                    .ContactItem{
+                        width: 75%;
+                        margin: 3%;
+                        font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+                        color: #353535;
+                        padding: 8px;
+                        border-radius: 5px;
+                        border: 2px solid transparent;
+                        resize: none;
+                    }
+                }
+                .FormEnvia{
+                    float: left;
+                    padding: 10px 30px 10px 30px;
+                    border: none;
+                    margin: 3%;
+                    background-color: #535353;
+                    color: #ffffff;
+                    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+                    border-radius: 3px;
+                    padding: 10px 35px 10px 35px;
+                  }
+            }          
+        }
+    }
+    .right-side{        
+        width: 50%;
+        height: 100vh;
+        padding: 10%;
+        iframe{
+            width: 500px;
+            height: 500px;
+            border: 0;
+        }
+    }
+}
+footer {
+    background-color: #535353;
+    text-align: center;
+    padding: 1%;
+    label {
+        color: #ffffff;
+        font-size: 45px;
+        font-weight: bold;
+        font-family: 'Futura PT Multilingual W01',Futura,'Trebuchet MS',Arial,sans-serif;
+    }
+    .phrase {
+        color: #ffffff;
+        font-size: 12px;
+        line-height: 2;               
+        text-transform: uppercase;
+    }
+    .Line {
+        opacity: 0.34;
+    }
+    .rights {
+        color: #ffffff;
+        font-size: 10px;
+        text-transform: uppercase;
+        line-height: 2;       
+        text-align: left;
+    }     
+}
