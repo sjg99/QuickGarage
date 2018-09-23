@@ -351,7 +351,7 @@ footer {
             float: none;
             display: flex;
             flex-direction: column; 
-            padding-top: 50px;            
+            padding-top: 15px;            
             li{
                width: 100%;               
                .LoginBoton{
@@ -408,18 +408,22 @@ footer {
                         margin: 1px;
                         padding: 1px 1px 1px 1px;
                         .ContIconos{
-                            .IconosExtremos {                                
-                                margin-top: 30px;
+                            .IconosExtremos {
+                                width: 40px;
+                                height: 40px;                                
+                                margin-top: 15px;
                             }
-                            .IconoMedio {                               
-                                margin-top: 2px;                            
+                            .IconoMedio {
+                                width: 30px;
+                                height: 30px;                                
+                                margin-top: 2px;
                             }
                         } 
                         .ParrafoAbout {                            
-                            font-size: 0.8em;                            
+                            font-size: 0.6em;                            
                         }
                         .LearnMore {
-                            font-size: 0.7em;                            
+                            font-size: 0.6em;                            
                         }                    
                     }
                 }
@@ -430,9 +434,8 @@ footer {
         flex-direction: column;                 
         .left-side{        
             width: 100%;
-            height: 40vh;
-            padding: 5%;
-            padding-top: 10%;                                 
+            height: 55vh;
+            padding: 1px;                                                        
             .ContactTitle{                
                 h2 {                   
                     font-size: 30px;
@@ -443,21 +446,39 @@ footer {
             }
            .ContactForm{
                 margin-top: 1px;
-                padding-left: 20%;                
+                padding-left: 20%;
+                form{                    
+                    .FormEnvia{                       
+                        margin: 3%;
+                        margin-left: 10%;                        
+                      }
+                }                                 
             }
         }
         .right-side{        
             width: 100%;
-            height: 50vh;
+            height: 35vh;
             padding: 1px;
-            margin-top: 10vh;
-            display: flex; 
+            padding-top: 10vh;                    
+            display: none; 
             justify-content: center;           
             iframe{            
                 width: 90%;
-                height: 35vh;
+                height: 20vh;
                 margin: 1px;          
             }
         }
+    }
+    footer {        
+        label {            
+            font-size: 20px;            
+        }
+        .phrase {            
+            font-size: 8px;            
+        }        
+        .rights {            
+            font-size: 6px;                  
+            text-align: center;
+        }     
     }    
 } 

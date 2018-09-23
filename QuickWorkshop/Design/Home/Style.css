@@ -435,7 +435,7 @@ footer .rights {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    padding-top: 50px;
+    padding-top: 15px;
   }
   .topnav.responsive .Topnav li {
     width: 100%;
@@ -480,16 +480,20 @@ footer .rights {
     padding: 1px 1px 1px 1px;
   }
   .SeccionAbout .ContenedorAbout .Fila .Columna .box .ContIconos .IconosExtremos {
-    margin-top: 30px;
+    width: 40px;
+    height: 40px;
+    margin-top: 15px;
   }
   .SeccionAbout .ContenedorAbout .Fila .Columna .box .ContIconos .IconoMedio {
+    width: 30px;
+    height: 30px;
     margin-top: 2px;
   }
   .SeccionAbout .ContenedorAbout .Fila .Columna .box .ParrafoAbout {
-    font-size: 0.8em;
+    font-size: 0.6em;
   }
   .SeccionAbout .ContenedorAbout .Fila .Columna .box .LearnMore {
-    font-size: 0.7em;
+    font-size: 0.6em;
   }
   .SeccionContact {
     -webkit-box-orient: vertical;
@@ -499,9 +503,8 @@ footer .rights {
   }
   .SeccionContact .left-side {
     width: 100%;
-    height: 40vh;
-    padding: 5%;
-    padding-top: 10%;
+    height: 55vh;
+    padding: 1px;
   }
   .SeccionContact .left-side .ContactTitle h2 {
     font-size: 30px;
@@ -513,22 +516,34 @@ footer .rights {
     margin-top: 1px;
     padding-left: 20%;
   }
+  .SeccionContact .left-side .ContactForm form .FormEnvia {
+    margin: 3%;
+    margin-left: 10%;
+  }
   .SeccionContact .right-side {
     width: 100%;
-    height: 50vh;
+    height: 35vh;
     padding: 1px;
-    margin-top: 10vh;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    padding-top: 10vh;
+    display: none;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
   .SeccionContact .right-side iframe {
     width: 90%;
-    height: 35vh;
+    height: 20vh;
     margin: 1px;
+  }
+  footer label {
+    font-size: 20px;
+  }
+  footer .phrase {
+    font-size: 8px;
+  }
+  footer .rights {
+    font-size: 6px;
+    text-align: center;
   }
 }
 /*# sourceMappingURL=Style.css.map */
