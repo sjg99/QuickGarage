@@ -98,6 +98,12 @@
     <Content Include="Models\QGDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>QGDB.Context.cs</LastGenOutput>
+      <DependentUpon>QGDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\QGDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QGDB.edmx</DependentUpon>
+      <LastGenOutput>QGDB.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\Home.js" />
     <Content Include="Design\Home\img\Cfg.png" />
@@ -116,9 +122,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>QGDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\QGDB.edmx.diagram">
+    <Content Include="Models\QGDB.edmx.diagram">
       <DependentUpon>QGDB.edmx</DependentUpon>
-    </None>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -136,15 +142,38 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\order.cs">
+      <DependentUpon>QGDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\orderpdetail.cs">
+      <DependentUpon>QGDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ordersdetail.cs">
+      <DependentUpon>QGDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\product.cs">
+      <DependentUpon>QGDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\QGDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QGDB.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\QGDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QGDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\QGDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QGDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\service.cs">
+      <DependentUpon>QGDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user.cs">
+      <DependentUpon>QGDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
