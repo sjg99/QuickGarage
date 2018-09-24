@@ -9,6 +9,23 @@ section {
   height: 100vh;
 }
 
+.ScrollUp {
+  background-image: url(img/Up.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  z-index: 1;
+  top: 100%;
+  left: 100%;
+  -webkit-transform: translate(-70px, -70px);
+          transform: translate(-70px, -70px);
+  margin: 10px;
+  display: none;
+  opacity: 0;
+}
+
 .topnav {
   width: 100%;
   margin: auto;
@@ -36,11 +53,11 @@ section {
 }
 
 .topnav .droplogo {
-  width: 40px;
+  width: 200px;
   height: 40px;
   margin: 10px;
   float: left;
-  background-image: url(img/logo.png);
+  background-image: url(img/Logo2.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -89,11 +106,19 @@ section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.SeccionHome .Background {
   background-image: url(img/fa.jpg);
   background-attachment: fixed;
+  width: 100%;
+  z-index: -2;
 }
 
 .SeccionHome .ContenedorHome {
+  position: absolute;
+  top: 40%;
+  left: 25%;
   margin: auto;
   text-align: center;
   background-color: #332d2da1;
@@ -446,6 +471,8 @@ footer .rights {
   }
   .SeccionHome .ContenedorHome {
     border-radius: 1px;
+    left: 0%;
+    width: 100%;
   }
   .SeccionHome .ContenedorHome .TextoPrincipal {
     font-size: 2em;
