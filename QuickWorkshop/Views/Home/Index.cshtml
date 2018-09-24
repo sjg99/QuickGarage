@@ -1,0 +1,131 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>QuickGarage</title>    
+    <link href="~/Design/Home/Style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <!--      nav-->
+    <div class="ScrollUp"></div>
+    <nav class="topnav" id="tn">
+        <div class="droplogo">
+        </div>
+        <div class="dropicon"><a href="javascript:topnav();">&#9776;</a></div>
+        <ul class="Topnav">
+            <li>
+                <a id="Home">HOME</a>
+            </li>
+            <li>
+                <a id="About">ACERCA DE</a>
+            </li>
+            <li>
+                <a id="Contact">CONTACTENOS</a>
+            </li>
+            <li>
+                <div id="LBoton" class="LoginBoton" href="#log-in">LOG IN</div>
+            </li>
+        </ul>
+    </nav>
+    <!--    login y home-->
+    <section class="SeccionHome">
+        <div class="LoginContenedor">
+            <div class="Login">
+                <Label class="lbl">Inicio de Sesión</Label>
+                <form>
+                    <div class="ContFormLogin">
+                        <div class="LoginCampos">
+                            <input type="text" name="Nombre" placeholder="Email" id="EmailL" class="input-container">
+                            <input type="text" name="Asunto" placeholder="Contraseña" id="PassL" class="input-container">
+                        </div>
+                        <div class="LoginBoton">
+                            <button type="submit">Iniciar Sesión</button>
+                        </div>
+                        <div class="field-validation-error">Contraseña incorrecta</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="Background"></div>
+        <div class="ContenedorHome">
+            <h1 class="TextoPrincipal">Bienvenido a QuickGarage</h1>
+            <div class="BotonLogin">
+                <a id="LBoton2" class="LoginBoton2">Log in</a>
+            </div>
+        </div>
+    </section>
+    <!--    About-->
+    <section class="SeccionAbout">
+        <div class="ContenedorAbout">
+            <div class="Fila">
+                <div class="Columna">
+                    <div class="box">
+                        <div class="ContIconos">
+                            <img class="IconosExtremos" src="~/Design/Home/img/Laptop.png">
+                        </div>
+                        <p class="ParrafoAbout">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. Thev Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. Ouib Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                    </div>
+                </div>
+                <div class="Columna">
+                    <div class="box">
+                        <div class="ContIconos">
+                            <img class="IconoMedio" src="~/Design/Home/img/Cfg.png">
+                        </div>
+                        <p class="ParrafoAbout">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. Thev Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. Ouib Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                        <a href="#video" class="LearnMore">Learn More</a>
+                    </div>
+                </div>
+                <div class="Columna">
+                    <div class="box">
+                        <div class="ContIconos">
+                            <img class="IconosExtremos" src="~/Design/Home/img/Clip.png">                            
+                        </div>
+                        <p class="ParrafoAbout">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. Thev Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. Ouib Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--    Contact-->
+    <section class="SeccionContact">
+        <div class="left-side">
+            <div class="ContactTitle">
+                <h2 class="">CONTACTENOS</h2>
+            </div>
+            <div class="ContactForm">
+                <form>
+                    <div>
+                        <input type="text" placeholder="Email" class="ContactItem">
+                        <input type="text" placeholder="Asunto" class="ContactItem">
+                        <textarea rows="8" cols="50" placeholder="Mensaje" class="ContactItem"></textarea>
+                    </div>
+                    <button type="submit" id="Envia" class="FormEnvia">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+        <div class="right-side">
+            <iframe style="    margin-bottom: 20em" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3976.596122640299!2d-74.10547627780198!3d4.665872891522889!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfa2b7e8800315f4d!2sUniversidad+Libre+Sede+El+Bosque%2C+Bloque+A%2C+Ingenieria!5e0!3m2!1ses!2sco!4v1537546354188" allowfullscreen></iframe>
+        </div>
+    </section>
+    <!--    footer -->
+    <footer>
+        <div class="row">
+            <div class="col-12">
+                <label>Q</label>
+                <p class="phrase">Whithout technology there's no future for humans.</p>
+            </div>
+        </div>
+        <hr class="Line">
+        <p class="rights">©2018 SJGQuicks. All Rights Reserved.</p>
+    </footer>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/Home.js"></script>    
+</body>
+</html>

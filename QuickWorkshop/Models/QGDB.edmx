@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="db_a41012_sjgqwsModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="TotalPrice" Type="double" Nullable="false" />
+          <Property Name="ProductQ" Type="int" Nullable="false" />
+          <Property Name="ServiceQ" Type="int" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.db_a41012_sjgqws.orderpdetails' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="orderpdetails">
+          <Key>
+            <PropertyRef Name="OrderId" />
+            <PropertyRef Name="Productid" />
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="Price" />
+          </Key>
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="Productid" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Price" Type="double" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.db_a41012_sjgqws.ordersdetails' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ordersdetails">
+          <Key>
+            <PropertyRef Name="OrderId" />
+            <PropertyRef Name="ServiceId" />
+            <PropertyRef Name="Price" />
+          </Key>
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="ServiceId" Type="int" Nullable="false" />
+          <Property Name="Price" Type="double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Price" Type="double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Price" Type="double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Position" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <Association Name="OrderIdP">
+          <End Role="order" Type="Self.order" Multiplicity="1" />
+          <End Role="orderpdetails" Type="Self.orderpdetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="orderpdetails">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderIdS">
+          <End Role="order" Type="Self.order" Multiplicity="1" />
+          <End Role="ordersdetails" Type="Self.ordersdetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="ordersdetails">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductId">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="orderpdetails" Type="Self.orderpdetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="orderpdetails">
+              <PropertyRef Name="Productid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ServiceId">
+          <End Role="service" Type="Self.service" Multiplicity="1" />
+          <End Role="ordersdetails" Type="Self.ordersdetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service">
+              <PropertyRef Name="ServiceID" />
+            </Principal>
+            <Dependent Role="ordersdetails">
+              <PropertyRef Name="ServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserID">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="order" Type="Self.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="order">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_a41012_sjgqwsModelStoreContainer">
+          <EntitySet Name="order" EntityType="Self.order" Schema="db_a41012_sjgqws" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="db_a41012_sjgqws" store:Type="Tables" />
+          <EntitySet Name="service" EntityType="Self.service" Schema="db_a41012_sjgqws" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="db_a41012_sjgqws" store:Type="Tables" />
+          <EntitySet Name="orderpdetails" EntityType="Self.orderpdetails" store:Type="Tables" store:Schema="db_a41012_sjgqws">
+            <DefiningQuery>SELECT
+`orderpdetails`.`OrderId`, 
+`orderpdetails`.`Productid`, 
+`orderpdetails`.`Quantity`, 
+`orderpdetails`.`Price`
+FROM `orderpdetails` AS `orderpdetails`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ordersdetails" EntityType="Self.ordersdetails" store:Type="Tables" store:Schema="db_a41012_sjgqws">
+            <DefiningQuery>SELECT
+`ordersdetails`.`OrderId`, 
+`ordersdetails`.`ServiceId`, 
+`ordersdetails`.`Price`
+FROM `ordersdetails` AS `ordersdetails`</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="OrderIdP" Association="Self.OrderIdP">
+            <End Role="order" EntitySet="order" />
+            <End Role="orderpdetails" EntitySet="orderpdetails" />
+          </AssociationSet>
+          <AssociationSet Name="OrderIdS" Association="Self.OrderIdS">
+            <End Role="order" EntitySet="order" />
+            <End Role="ordersdetails" EntitySet="ordersdetails" />
+          </AssociationSet>
+          <AssociationSet Name="ProductId" Association="Self.ProductId">
+            <End Role="product" EntitySet="product" />
+            <End Role="orderpdetails" EntitySet="orderpdetails" />
+          </AssociationSet>
+          <AssociationSet Name="ServiceId" Association="Self.ServiceId">
+            <End Role="service" EntitySet="service" />
+            <End Role="ordersdetails" EntitySet="ordersdetails" />
+          </AssociationSet>
+          <AssociationSet Name="UserID" Association="Self.UserID">
+            <End Role="user" EntitySet="user" />
+            <End Role="order" EntitySet="order" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_a41012_sjgqwsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TotalPrice" Type="Double" Nullable="false" />
+          <Property Name="ProductQ" Type="Int32" Nullable="false" />
+          <Property Name="ServiceQ" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="orderpdetails" Relationship="Self.OrderIdP" FromRole="order" ToRole="orderpdetails" />
+          <NavigationProperty Name="ordersdetails" Relationship="Self.OrderIdS" FromRole="order" ToRole="ordersdetails" />
+          <NavigationProperty Name="user" Relationship="Self.UserID" FromRole="order" ToRole="user" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <NavigationProperty Name="orderpdetails" Relationship="Self.ProductId" FromRole="product" ToRole="orderpdetails" />
+        </EntityType>
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <NavigationProperty Name="ordersdetails" Relationship="Self.ServiceId" FromRole="service" ToRole="ordersdetails" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Position" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="orders" Relationship="Self.UserID" FromRole="user" ToRole="order" />
+        </EntityType>
+        <EntityType Name="orderpdetail">
+          <Key>
+            <PropertyRef Name="OrderId" />
+            <PropertyRef Name="Productid" />
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="Price" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="Productid" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <NavigationProperty Name="order" Relationship="Self.OrderIdP" FromRole="orderpdetails" ToRole="order" />
+          <NavigationProperty Name="product" Relationship="Self.ProductId" FromRole="orderpdetails" ToRole="product" />
+        </EntityType>
+        <EntityType Name="ordersdetail">
+          <Key>
+            <PropertyRef Name="OrderId" />
+            <PropertyRef Name="ServiceId" />
+            <PropertyRef Name="Price" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="ServiceId" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <NavigationProperty Name="order" Relationship="Self.OrderIdS" FromRole="ordersdetails" ToRole="order" />
+          <NavigationProperty Name="service" Relationship="Self.ServiceId" FromRole="ordersdetails" ToRole="service" />
+        </EntityType>
+        <Association Name="OrderIdP">
+          <End Role="order" Type="Self.order" Multiplicity="1" />
+          <End Role="orderpdetails" Type="Self.orderpdetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="orderpdetails">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderIdS">
+          <End Role="order" Type="Self.order" Multiplicity="1" />
+          <End Role="ordersdetails" Type="Self.ordersdetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="ordersdetails">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserID">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="order" Type="Self.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="order">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductId">
+          <End Role="product" Type="Self.product" Multiplicity="1" />
+          <End Role="orderpdetails" Type="Self.orderpdetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="orderpdetails">
+              <PropertyRef Name="Productid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ServiceId">
+          <End Role="service" Type="Self.service" Multiplicity="1" />
+          <End Role="ordersdetails" Type="Self.ordersdetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service">
+              <PropertyRef Name="ServiceID" />
+            </Principal>
+            <Dependent Role="ordersdetails">
+              <PropertyRef Name="ServiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QWDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="orders" EntityType="Self.order" />
+          <EntitySet Name="products" EntityType="Self.product" />
+          <EntitySet Name="services" EntityType="Self.service" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="orderpdetails" EntityType="Self.orderpdetail" />
+          <EntitySet Name="ordersdetails" EntityType="Self.ordersdetail" />
+          <AssociationSet Name="OrderIdP" Association="Self.OrderIdP">
+            <End Role="order" EntitySet="orders" />
+            <End Role="orderpdetails" EntitySet="orderpdetails" />
+          </AssociationSet>
+          <AssociationSet Name="OrderIdS" Association="Self.OrderIdS">
+            <End Role="order" EntitySet="orders" />
+            <End Role="ordersdetails" EntitySet="ordersdetails" />
+          </AssociationSet>
+          <AssociationSet Name="UserID" Association="Self.UserID">
+            <End Role="user" EntitySet="users" />
+            <End Role="order" EntitySet="orders" />
+          </AssociationSet>
+          <AssociationSet Name="ProductId" Association="Self.ProductId">
+            <End Role="product" EntitySet="products" />
+            <End Role="orderpdetails" EntitySet="orderpdetails" />
+          </AssociationSet>
+          <AssociationSet Name="ServiceId" Association="Self.ServiceId">
+            <End Role="service" EntitySet="services" />
+            <End Role="ordersdetails" EntitySet="ordersdetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_a41012_sjgqwsModelStoreContainer" CdmEntityContainer="QWDBEntities">
+          <EntitySetMapping Name="orders">
+            <EntityTypeMapping TypeName="db_a41012_sjgqwsModel.order">
+              <MappingFragment StoreEntitySet="order">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="ProductQ" ColumnName="ProductQ" />
+                <ScalarProperty Name="ServiceQ" ColumnName="ServiceQ" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="db_a41012_sjgqwsModel.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="services">
+            <EntityTypeMapping TypeName="db_a41012_sjgqwsModel.service">
+              <MappingFragment StoreEntitySet="service">
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="db_a41012_sjgqwsModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orderpdetails">
+            <EntityTypeMapping TypeName="db_a41012_sjgqwsModel.orderpdetail">
+              <MappingFragment StoreEntitySet="orderpdetails">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Productid" ColumnName="Productid" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ordersdetails">
+            <EntityTypeMapping TypeName="db_a41012_sjgqwsModel.ordersdetail">
+              <MappingFragment StoreEntitySet="ordersdetails">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
