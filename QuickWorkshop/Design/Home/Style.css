@@ -530,8 +530,9 @@ footer .rights {
   }
   .SeccionContact .left-side {
     width: 100%;
-    height: 55vh;
+    height: 40vh;
     padding: 1px;
+    padding-top: 10vh;
   }
   .SeccionContact .left-side .ContactTitle h2 {
     font-size: 30px;
@@ -543,23 +544,29 @@ footer .rights {
     margin-top: 1px;
     padding-left: 20%;
   }
+  .SeccionContact .left-side .ContactForm form div .ContactItem {
+    width: 75%;
+    margin: 1%;
+    padding: 5px;
+    border-radius: 3px;
+  }
   .SeccionContact .left-side .ContactForm form .FormEnvia {
     margin: 3%;
-    margin-left: 10%;
+    margin-left: 15%;
   }
   .SeccionContact .right-side {
     width: 100%;
-    height: 35vh;
-    padding: 1px;
+    height: 60vh;
+    padding: 0;
     padding-top: 10vh;
-    display: none;
+    padding-left: 10%;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
   .SeccionContact .right-side iframe {
     width: 90%;
-    height: 20vh;
+    height: 40vh;
     margin: 1px;
   }
   footer label {
