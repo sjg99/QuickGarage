@@ -58,14 +58,14 @@ $('#Home').click(function() {
     $('.SeccionHome .LoginContenedor').css('opacity','1');
     $('nav, .SeccionAbout, .SeccionContact, .Background, .ContenedorHome, footer').css('filter', 'blur(5px)');
   });
-  $('html').click(function() { 
+$('html').click(function() { 
     setTimeout(function(){
         $('.SeccionHome .LoginContenedor').css('display','none');
     $('.SeccionHome .LoginContenedor').css('opacity','0');
     $('nav, .SeccionAbout, .SeccionContact, .Background, .ContenedorHome, footer').css('filter', 'blur(0px)');
       }, 1);          
   });
-  $('#LBoton, #LBoton2').click(function(e){
+  $('#LBoton, #LBoton2, .SeccionHome .LoginContenedor .Login').click(function(e){
     e.stopPropagation();
   });
   

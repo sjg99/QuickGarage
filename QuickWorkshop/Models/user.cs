@@ -11,7 +11,8 @@ namespace QuickWorkshop.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class user
     {
         public user()
@@ -20,12 +21,18 @@ namespace QuickWorkshop.Models
         }
     
         public int UserID { get; set; }
+        [DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage = "Este campo no puede estar vacio")]
         public string Email { get; set; }
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "Este campo no puede estar vacio")]
         public string Password { get; set; }
         public string Name { get; set; }
         public string Position { get; set; }
         public string Status { get; set; }
-    
+        public string LoginError { get; set; }
+        
+
         public virtual ICollection<order> orders { get; set; }
     }
 }

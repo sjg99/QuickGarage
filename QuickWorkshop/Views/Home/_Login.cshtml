@@ -1,0 +1,22 @@
+﻿@model QuickWorkshop.Models.user
+@{ 
+
+}
+<div class="Login">
+    <Label class="lbl">Inicio de Sesión</Label>
+    @using (Html.BeginForm("Login","Home", FormMethod.Post))
+    {
+        <div class="ContFormLogin">
+            <div class="LoginCampos">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "input-container", @placeholder = "Email" } })
+                @Html.ValidationMessageFor(model => model.Email)
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "input-container", @placeholder = "Password"} })
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+            <div class="LoginBoton">
+                <button type="submit">Iniciar Sesión</button>
+            </div>
+            <div class="field-validation-error">@Html.DisplayFor(model => model.LoginError)</div>
+        </div>
+    }
+</div>
