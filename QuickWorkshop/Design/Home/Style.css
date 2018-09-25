@@ -113,6 +113,8 @@ section {
   background-attachment: fixed;
   width: 100%;
   z-index: -2;
+  background-size: cover;
+  background-position: center;
 }
 
 .SeccionHome .ContenedorHome {

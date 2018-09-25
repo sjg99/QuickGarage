@@ -93,7 +93,9 @@ section {
         background-image: url(img/fa.jpg);
         background-attachment: fixed;
         width: 100%;               
-        z-index: -2; 
+        z-index: -2;
+        background-size: cover;
+        background-position: center; 
     }    
     .ContenedorHome{
         position: absolute;
