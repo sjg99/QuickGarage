@@ -1,0 +1,330 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+header {
+  width: 100%;
+}
+
+header nav {
+  width: 100%;
+  background-color: #464241;
+  display: flex;
+  float: right;
+}
+
+header nav .perfil {
+  width: 50%;
+}
+
+header nav .perfil .contenedor-prof {
+  display: flex;
+  float: right;
+  padding: 0.5em 2.2em 0.5em 2.2em;
+  background-color: #3b3736;
+}
+
+header nav .perfil .contenedor-prof img {
+  margin-left: 1em;
+  width: 35px;
+  height: 35px;
+}
+
+header nav .perfil .contenedor-prof p {
+  margin: auto;
+  color: #ffffff;
+  font-size: 0.9em;
+  font-family: 'Open Sans', sans-serif;
+}
+
+header nav .logo {
+  width: 50%;
+}
+
+header nav .logo .container {
+  background-color: #fc5329;
+  width: 192px;
+}
+
+header nav .logo .container img {
+  width: 174px;
+}
+
+.infoBar {
+  width: 100%;
+  display: flex;
+  padding: 0.5em 1em 0.5em 1em;
+}
+
+.infoBar .ajustes {
+  width: 50%;
+  margin: auto;
+}
+
+.infoBar .ajustes h2 {
+  width: 100%;
+  text-align: left;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  color: #8a8989;
+  letter-spacing: 1px;
+}
+
+.infoBar .iconos {
+  width: 50%;
+}
+
+.infoBar .iconos .cajas {
+  max-width: 45px;
+  float: right;
+  border: 1px solid #9CA0A3;
+  padding: 0.41em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+}
+
+.infoBar .iconos .cajaadd {
+  max-width: 45px;
+  float: right;
+  border: 1px solid #9CA0A3;
+  padding: 0.41em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+}
+
+.infoBar .iconos .cajas:hover {
+  cursor: pointer;
+}
+
+.infoBar .iconos .cajaadd:hover {
+  cursor: pointer;
+}
+
+.infoBar .iconos .cajas img {
+  max-width: 20px;
+  margin: auto;
+}
+
+.infoBar .iconos .cajaadd img {
+  max-width: 20px;
+  margin: auto;
+}
+
+.contenedor-padre {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.contenedor-padre .izq {
+  width: 20%;
+  background-color: #f8f7f7;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  padding: 2.5em 2em 2.5em 2em;
+}
+
+.contenedor-padre .izq .txtContenedor {
+  width: 100%;
+  text-align: left;
+}
+
+.contenedor-padre .izq .txtContenedor h2 {
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
+  color: #000;
+  margin-bottom: 1.2em;
+  letter-spacing: 1px;
+}
+
+.contenedor-padre .izq .txtContenedor a {
+  font-size: 14px;
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  color: #898D90;
+  text-decoration: none;
+  margin-bottom: 1.03em;
+  letter-spacing: 1px;
+}
+
+.contenedor-padre .izq .txtContenedor a:hover {
+  color: #fa8b6a;
+  letter-spacing: 1.5px;
+}
+
+.contenedor-padre .derecha {
+  width: 80%;
+  background-color: #fff8f5;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.contenedor-padre .derecha .contenedor {
+  width: 100%;
+  padding: 1.5em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.contenedor-padre .derecha .contenedor .caja {
+  display: flex;
+  margin: 1em 0.5em 1em 0.5em;
+}
+
+.contenedor-padre .derecha .contenedor .caja .caja-1 {
+  max-width: 128px;
+  padding: 1em;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  background-color: #ffffff;
+}
+
+.contenedor-padre .derecha .contenedor .caja .caja-1 img {
+  max-width: 68px;
+}
+
+.contenedor-padre .derecha .contenedor .caja .caja-2 {
+  padding-left: 1em;
+  padding-right: 0.5em;
+}
+
+.contenedor-padre .derecha .contenedor .caja .caja-2 h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.contenedor-padre .derecha .contenedor .caja .caja-2 p {
+  margin-top: 0.5em;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+.contenedor-padre .derecha .contenedor .caja .caja-2 button {
+  border: none;
+  border-radius: 2px;
+  border: 1px solid #da4f25;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #da4f25;
+  color: #fff;
+  margin-top: 1em;
+  width: 100%;
+  padding: 0.3em 2.5em 0.3em 2.5em;
+}
+
+.VentanaAdd {
+  position: fixed;
+  width: 45%;
+  height: 90%;
+  min-height: 200px;
+  left: 50%;
+  top: -100%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .05), 0 1px 3px 0 rgba(0, 0, 0, .1);
+  font-size: 1.39em;
+  color: #ffffff;
+  display: flex;
+  border-radius: 5px;
+  transition-duration: 0.3s;
+  z-index: 3;
+}
+
+.contentform {
+  width: 43%;
+  border-radius: 5px 0 0 5px;
+  background-color: #F2F2F2;
+}
+
+.bugs {
+  color: #da4f25;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 100;
+  font-size: 35px;
+  padding-top: 77%;
+  text-align: center;
+}
+
+.txtlbl {
+  color: #333333;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 100;
+  font-size: 22px;
+  padding-top: 77%;
+  padding-left: 37%;
+}
+
+.formDomain {
+  background-color: #fff;
+  width: 65%;
+  border-radius: 0 5px 5px 0;
+  padding: 30px 28px;
+}
+
+.formDomain p{
+    color: #31BD87;
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 100;
+    font-size: 20px;    
+}
+.formDomain table{
+    color: #31BD87;
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 100;
+    font-size: 20px;    
+}
+
+
+.titlefield {
+  color: #333333;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  padding-bottom: 10%;
+}
+
+.formDomain .domain-container {
+  margin: 1em;
+  width: 90%;
+  padding: 18px;
+  border: none;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+}
+
+.field-validation-error {
+  width: 100%;
+  text-align: center;
+  font-size: .875rem;
+  padding: 5%;
+  margin-bottom: 1em;
+  color: #f73131;
+  transition-duration: 0.3s;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+}
+#position{
+  
+  width: 90%;
+  padding: 0.9em;
+  margin: 1em;
+}
+
+.select-field {
+  width: 100%;
+  padding: 0.9em;
+  margin-bottom: 1em;
+}
+
+.btn-proceed {
+  background-color: #da4f25;
+  border: none;
+  width: 100%;
+  border-radius: 2px;
+  color: #fff;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.btn-proceed:hover {
+  cursor: pointer;
+}
