@@ -1,4 +1,4 @@
-﻿
+﻿@model QuickWorkshop.ViewModels.ManagementLoading
 @{
     Layout = null;
     if (Session["email"] == null)
@@ -8,15 +8,135 @@
 }
 
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="~/Design/Management/main.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <title>CPanel | Menu</title>
 </head>
+
 <body>
-    <div>
-        @Session["name"]
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="container">
+                    <img src="~/Design/Management/img/Logo2.png" alt="">
+                </div>
+            </div>
+            <div class="perfil">
+                <div class="contenedor-prof">
+                    <p>@Session["name"]</p>
+                    <img src="~/Design/Management/img/user.png" alt="">
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="infoBar">
+        <div class="ajustes">
+            <h2>Settings</h2>
+        </div>
+        <div class="iconos">
+            <div class="cajaadd">
+                <img src="~/Design/Management/img/add.png" alt="">
+            </div>            
+        </div>
+    </main>
+    <div class="Ventana">
+        <!-- ventana de ajuste -->
+        <div id="AddWindow" class="VentanaAdd">
+            
+        </div>
     </div>
+    <section class="contenedor-padre">
+        <div class="izq">
+            <div class="txtContenedor">
+                <h2>Modules</h2>
+                @Html.ActionLink("Productos", "GetProducts")
+                @Html.ActionLink("Servicios", "GetServices")
+                @Html.ActionLink("Empleados", "GetUsers")
+                @Html.ActionLink("Facturacion", "GetOrders")
+                <a href="#">Products</a>
+                <a href="#">Employees</a>
+                <h2>Account</h2>
+                <a href="#">Logout</a>
+            </div>
+        </div>
+        <div class="derecha">
+            <div class="contenedor">
+                @foreach (var x in Model.products)
+                {
+                <div class="caja">
+                    <div class="caja-1">
+                        <img src="~/Design/Management/img/brake.png" alt="">
+                    </div>
+                    <div class="caja-2">
+                        <div class="info">
+                            @using (Ajax.BeginForm("EditPro", new AjaxOptions { UpdateTargetId = "AddWindow", InsertionMode = InsertionMode.Replace }))
+                            {
+                                @Html.HiddenFor(m => m.products.First().ProductId, new { Value = x.ProductId })
+                                @Html.HiddenFor(m => m.products.First().Name, new { Value = x.Name})
+                                @Html.HiddenFor(m => m.products.First().Quantity, new { Value = x.Quantity })
+                                @Html.HiddenFor(m => m.products.First().Price, new { Value = x.Price })
+                            }
+                            <h3 class="titulo">@x.Name</h3>
+                            @if (x.Quantity <= 5)
+                            {
+                                <p class="lowQ">Cantidad disponible: @x.Quantity</p>
+                            }
+                            else
+                            {
+                                <p>Cantidad disponible: @x.Quantity</p>
+                            }
+                            <button class="edit" type="submit">Edit</button>
+                        </div>
+                    </div>
+                </div>
+                }
+                <div class="caja">
+                    <div class="caja-1">
+                        <img src="~/Design/Management/img/tools.png" alt="">
+                    </div>
+                    <div class="caja-2">
+                        <div class="info">
+                            <h3 class="titulo">Servicio</h3>
+                            <p>Description of the product</p>
+                            <button class="edit">Edit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="caja">
+                    <div class="caja-1">
+                        <img src="~/Design/Management/img/race.png" alt="">
+                    </div>
+                    <div class="caja-2">
+                        <div class="info">
+                            <h3 class="titulo">Empleado</h3>
+                            <p>Description of the product</p>
+                            <button class="edit">Edit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="caja">
+                    <div class="caja-1">
+                        <img src="~/Design/Management/img/order.png" alt="">
+                    </div>
+                    <div class="caja-2">
+                        <div class="info">
+                            <h3 class="titulo">Factura</h3>
+                            <p>Description of the product</p>
+                            <button class="edit">Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="/Scripts/jquery-3.3.1.js"></script>
+    <script src="/Scripts/AddWindow.js"></script>
 </body>
 </html>
+<!-- https://dribbble.com/shots/1986474-Application-Modul -->

@@ -198,6 +198,12 @@ header nav .logo .container img {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
 }
+.contenedor-padre .derecha .contenedor .caja .caja-2 p {
+  margin-top: 0.5em;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  color: #ff0000;
+}
 
 .contenedor-padre .derecha .contenedor .caja .caja-2 button {
   border: none;

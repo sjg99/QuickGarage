@@ -554,7 +554,7 @@ footer .rights {
   }
   .SeccionContact .left-side .ContactForm form .FormEnvia {
     margin: 3%;
-    margin-left: 15%;
+    margin-left: 10%;
   }
   .SeccionContact .right-side {
     width: 100%;
@@ -568,8 +568,9 @@ footer .rights {
   }
   .SeccionContact .right-side iframe {
     width: 90%;
-    height: 40vh;
+    height: 25vh;
     margin: 1px;
+    margin-top: 15vh;
   }
   footer label {
     font-size: 20px;

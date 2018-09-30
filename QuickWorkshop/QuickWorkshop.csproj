@@ -96,6 +96,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Design\Home\StyleW.css" />
+    <Content Include="Design\Management\main.css" />
+    <Content Include="Design\Management\img\add.png" />
+    <Content Include="Design\Management\img\brake.png" />
+    <Content Include="Design\Management\img\cart.png" />
+    <Content Include="Design\Management\img\Logo2.png" />
+    <Content Include="Design\Management\img\order.png" />
+    <Content Include="Design\Management\img\race.png" />
+    <Content Include="Design\Management\img\tools.png" />
+    <Content Include="Design\Management\img\user.png" />
+    <Content Include="Design\Management\index.html" />
     <Content Include="Models\QGDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>QGDB.Context.cs</LastGenOutput>
@@ -179,6 +189,7 @@
       <DependentUpon>QGDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ManagementLoading.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
