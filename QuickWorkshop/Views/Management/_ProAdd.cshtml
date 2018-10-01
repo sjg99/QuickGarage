@@ -1,0 +1,21 @@
+﻿@model QuickWorkshop.Models.product
+
+<div class="contentform">
+    <h2 class="bugs">Producto</h2>
+    <label class="txtlbl">Agregar</label>
+</div>
+@using (Html.BeginForm("AddPro", "Management", FormMethod.Post))
+{
+    <div class="formDomain">
+        <h2 class="titlefield">Registrar un Producto</h2>
+        <form class="Dnsform">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "domain-container", @placeholder = "Nombre del Producto"} })
+            @Html.ValidationMessageFor(model => model.Name)
+            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "domain-container", @placeholder = "Precio", @Value="", @type="number" } })
+            @Html.ValidationMessageFor(model => model.Price)
+            @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "domain-container", @placeholder = "Cantidad en inventario", @Value = "" } })         
+        </form>
+        <button type="submit" id="Addr" class="btn-proceed">Agregar</button>
+        <div class="field-validation-error">@Html.DisplayFor(model => model.AddPError)</div>
+    </div>
+}

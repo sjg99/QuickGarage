@@ -5,6 +5,7 @@
     {
         Response.Redirect("~/");
     }
+    QuickWorkshop.Models.product p = new QuickWorkshop.Models.product();
 }
 
 <!DOCTYPE html>
@@ -37,64 +38,62 @@
     </header>
     <main class="infoBar">
         <div class="ajustes">
-            <h2>Settings</h2>
+            <h2>Gestión</h2>
         </div>
         <div class="iconos">
             <div class="cajaadd">
                 <img src="~/Design/Management/img/add.png" alt="">
-            </div>            
+            </div>
         </div>
     </main>
     <div class="Ventana">
         <!-- ventana de ajuste -->
         <div id="AddWindow" class="VentanaAdd">
-            
+            @{ Html.RenderPartial("_ProAdd", p); }
         </div>
     </div>
     <section class="contenedor-padre">
         <div class="izq">
             <div class="txtContenedor">
-                <h2>Modules</h2>
+                <h2>Módulos</h2>
                 @Html.ActionLink("Productos", "GetProducts")
                 @Html.ActionLink("Servicios", "GetServices")
                 @Html.ActionLink("Empleados", "GetUsers")
                 @Html.ActionLink("Facturacion", "GetOrders")
-                <a href="#">Products</a>
-                <a href="#">Employees</a>
-                <h2>Account</h2>
-                <a href="#">Logout</a>
+                <h2>Cuenta</h2>
+                <a href="@Url.Action("LogOut", "Management")">Cerrar Sesión</a>
             </div>
         </div>
         <div class="derecha">
             <div class="contenedor">
                 @foreach (var x in Model.products)
                 {
-                <div class="caja">
-                    <div class="caja-1">
-                        <img src="~/Design/Management/img/brake.png" alt="">
-                    </div>
-                    <div class="caja-2">
-                        <div class="info">
-                            @using (Ajax.BeginForm("EditPro", new AjaxOptions { UpdateTargetId = "AddWindow", InsertionMode = InsertionMode.Replace }))
-                            {
-                                @Html.HiddenFor(m => m.products.First().ProductId, new { Value = x.ProductId })
-                                @Html.HiddenFor(m => m.products.First().Name, new { Value = x.Name})
-                                @Html.HiddenFor(m => m.products.First().Quantity, new { Value = x.Quantity })
-                                @Html.HiddenFor(m => m.products.First().Price, new { Value = x.Price })
-                            }
-                            <h3 class="titulo">@x.Name</h3>
-                            @if (x.Quantity <= 5)
-                            {
-                                <p class="lowQ">Cantidad disponible: @x.Quantity</p>
-                            }
-                            else
-                            {
-                                <p>Cantidad disponible: @x.Quantity</p>
-                            }
-                            <button class="edit" type="submit">Edit</button>
+                    <div class="caja">
+                        <div class="caja-1">
+                            <img src="~/Design/Management/img/brake.png" alt="">
+                        </div>
+                        <div class="caja-2">
+                            <div class="info">
+                                @using (Ajax.BeginForm("EditPro", new AjaxOptions { UpdateTargetId = "AddWindow", InsertionMode = InsertionMode.Replace }))
+                                {
+                                    @Html.HiddenFor(m => m.products.First().ProductId, new { Value = x.ProductId })
+                                    @Html.HiddenFor(m => m.products.First().Name, new { Value = x.Name })
+                                    @Html.HiddenFor(m => m.products.First().Quantity, new { Value = x.Quantity })
+                                    @Html.HiddenFor(m => m.products.First().Price, new { Value = x.Price })                                
+                                <h3 class="titulo">@x.Name</h3>
+                                if (x.Quantity <= 5)
+                                {
+                                    <p class="lowQ">Cantidad disponible: @x.Quantity</p>
+                                }
+                                else
+                                {
+                                    <p>Cantidad disponible: @x.Quantity</p>
+                                }
+                                <button class="edit" type="submit">Edit</button>
+                                }
+                            </div>
                         </div>
                     </div>
-                </div>
                 }
                 <div class="caja">
                     <div class="caja-1">
@@ -136,6 +135,10 @@
         </div>
     </section>
     <script src="/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="/Scripts/AddWindow.js"></script>
 </body>
 </html>

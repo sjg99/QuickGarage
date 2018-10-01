@@ -200,6 +200,8 @@
     <Content Include="Views\Home\_Login.cshtml" />
     <Content Include="Views\Management\Index.cshtml" />
     <Content Include="Views\Home\IndexW.cshtml" />
+    <Content Include="Views\Management\_ProAdd.cshtml" />
+    <Content Include="Views\Management\_ProEdit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

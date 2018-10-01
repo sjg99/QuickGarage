@@ -11,7 +11,8 @@ namespace QuickWorkshop.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class product
     {
         public product()
@@ -20,10 +21,14 @@ namespace QuickWorkshop.Models
         }
     
         public int ProductId { get; set; }
-        public string Name { get; set; }
+        [Required(ErrorMessage = "Este campo no puede estar vacio")]
+        public string Name { get; set; }        
         public int Quantity { get; set; }
+        [DataType(DataType.Currency)]
+        [Required(ErrorMessage = "Este campo no puede estar vacio")]
         public double Price { get; set; }
-    
+        public string AddPError { get; set; }
+
         public virtual ICollection<orderpdetail> orderpdetails { get; set; }
     }
 }

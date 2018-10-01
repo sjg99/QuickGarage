@@ -14,6 +14,7 @@ namespace QuickWorkshop.Controllers
         {
             return View();
         }
+        [HttpPost]
         public ActionResult Login(user usermodel)
         {
             using(QWDBEntities db = new QWDBEntities())
