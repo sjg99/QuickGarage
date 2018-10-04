@@ -37,7 +37,7 @@ namespace QuickWorkshop.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Management");
+                        return RedirectToAction("Index", "Employee");
                     }
                 }
             }

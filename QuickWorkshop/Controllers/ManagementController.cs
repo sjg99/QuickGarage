@@ -31,7 +31,7 @@ namespace QuickWorkshop.Controllers
         }
         public ActionResult GetUsers()
         {
-            return View("IndexUs", managementLoading());
+            return View("IndexUsr", managementLoading());
         }
         public ActionResult GetOrders()
         {
@@ -59,7 +59,7 @@ namespace QuickWorkshop.Controllers
                     var ProductCreation = db.Set<product>();
                     ProductCreation.Add(new product { ProductId = idp, Name = productmodel.Name, Price = productmodel.Price, Quantity = productmodel.Quantity });
                     db.SaveChanges();
-                    return RedirectToAction("Index", "Management");
+                    return RedirectToAction("GetProducts", "Management");
                 }
                 catch (Exception ex)
                 {
@@ -87,6 +87,101 @@ namespace QuickWorkshop.Controllers
                 {
                     productmodel.AddPError = "Couldn't edit Product";
                     return PartialView("_ProEdit", productmodel);
+                }
+            }
+        }
+        [HttpPost]
+        public ActionResult AddSer(service servicemodel)
+        {
+
+            using (QWDBEntities db = new QWDBEntities())
+            {
+                try
+                {
+                    int ids;
+                    service LastService;
+                    try
+                    {
+                        LastService = db.services.Where(x => x.ServiceID > 0).OrderByDescending(x => x.ServiceID).First();
+                        ids = LastService.ServiceID + 1;
+                    }
+                    catch
+                    {
+                        ids = 1;
+                    }
+                    var ServiceCreation = db.Set<service>();
+                    ServiceCreation.Add(new service { ServiceID = ids, Name = servicemodel.Name, Price = servicemodel.Price});
+                    db.SaveChanges();
+                    return RedirectToAction("GetServices", "Management");
+                }
+                catch (Exception ex)
+                {
+                    servicemodel.AddSError = "Couldn't create new Service" + ex;
+                    return PartialView("_SerAdd", servicemodel);
+                }
+            }
+        }
+        public ActionResult EditSer(service servicemodel)
+        {
+            return PartialView("_SerEdit", servicemodel);
+        }
+        [HttpPost]
+        public ActionResult UpdateSer(service servicemodel)
+        {
+            using (QWDBEntities db = new QWDBEntities())
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Entry(servicemodel).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("GetServices");
+                }
+                else
+                {
+                    servicemodel.AddSError = "Couldn't edit Service";
+                    return PartialView("_SerEdit", servicemodel);
+                }
+            }
+        }
+        [HttpPost]
+        public ActionResult AddUsr(user usermodel)
+        {
+
+            using (QWDBEntities db = new QWDBEntities())
+            {
+                try
+                {
+                    var UserCreation = db.Set<user>();
+                    UserCreation.Add(new user { UserID = usermodel.UserID, Email = usermodel.Email, Password = usermodel.Password, Name = usermodel.Name, Position = usermodel.Position, Status = "Activo" });
+                    db.SaveChanges();
+                    return RedirectToAction("GetUsers", "Management");
+                }
+                catch (Exception ex)
+                {
+                    usermodel.AddUError = "Couldn't create new User" + ex;
+                    return PartialView("_UsrAdd", usermodel);
+                }
+            }
+        }
+        public ActionResult EditUsr(user usermodel)
+        {
+            return PartialView("_UsrEdit", usermodel);
+        }
+        [HttpPost]
+        public ActionResult UpdateUsr(user usermodel)
+        {
+            using (QWDBEntities db = new QWDBEntities())
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Entry(usermodel).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("GetUsers");
+                }
+                else
+                {
+                    usermodel.AddUError = "Couldn't edit User";
+                    return PartialView("_UsrEdit", usermodel);
                 }
             }
         }

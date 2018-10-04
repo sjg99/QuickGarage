@@ -22,7 +22,8 @@ namespace QuickWorkshop.Models
     
         public int ProductId { get; set; }
         [Required(ErrorMessage = "Este campo no puede estar vacio")]
-        public string Name { get; set; }        
+        public string Name { get; set; }
+        [Required(ErrorMessage = "Este campo no puede estar vacio")]
         public int Quantity { get; set; }
         [DataType(DataType.Currency)]
         [Required(ErrorMessage = "Este campo no puede estar vacio")]

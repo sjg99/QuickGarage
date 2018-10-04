@@ -1,0 +1,34 @@
+﻿@model QuickWorkshop.Models.user
+@{
+    List<string> positions = new List<string>();
+    positions.Add("Administrador");
+    positions.Add("Empleado");
+    System.Web.Mvc.SelectList positionslist = new SelectList(positions);
+    List<string> status = new List<string>();
+    status.Add("Activo");
+    status.Add("Inactivo");
+    System.Web.Mvc.SelectList statuslist = new SelectList(status);
+}
+<div class="contentform">
+    <h2 class="bugs">Empleado</h2>
+    <label class="txtlbl">Editar</label>
+</div>
+@using (Html.BeginForm("UpdateUsr", "Management", FormMethod.Post))
+{
+    <div class="formDomain">
+        <h2 class="titlefield">Editar @Model.Name</h2>
+        <form class="Dnsform">
+            @Html.HiddenFor(model => model.UserID)
+            @Html.HiddenFor(model => model.Password)
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "domain-container", @placeholder = "Email" } })
+            @Html.ValidationMessageFor(model => model.Email)            
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "domain-container", @placeholder = "Nombre" } })
+            @Html.ValidationMessageFor(model => model.Name)
+            @Html.DropDownListFor(model => model.Position, positionslist, new { @class = "domain-container select-field", @Value = "Seleccionar Cargo" })
+            @Html.DropDownListFor(model => model.Status, statuslist, new { @class = "domain-container select-field", @Value = "Seleccionar Estado" })
+
+        </form>
+        <button type="submit" id="Addr" class="btn-proceed">Editar</button>
+        <div class="field-validation-error">@Html.DisplayFor(model => model.AddUError)</div>
+    </div>
+}

@@ -116,6 +116,7 @@
       <DependentUpon>QGDB.edmx</DependentUpon>
       <LastGenOutput>QGDB.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\AddWindow.js" />
     <Content Include="Scripts\Home.js" />
     <Content Include="Design\Home\img\Cfg.png" />
     <Content Include="Design\Home\img\Clip.png" />
@@ -136,6 +137,7 @@
     <Content Include="Models\QGDB.edmx.diagram">
       <DependentUpon>QGDB.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -150,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManagementController.cs" />
     <Compile Include="Global.asax.cs">
@@ -202,6 +205,13 @@
     <Content Include="Views\Home\IndexW.cshtml" />
     <Content Include="Views\Management\_ProAdd.cshtml" />
     <Content Include="Views\Management\_ProEdit.cshtml" />
+    <Content Include="Views\Management\_SerAdd.cshtml" />
+    <Content Include="Views\Management\_SerEdit.cshtml" />
+    <Content Include="Views\Management\IndexSer.cshtml" />
+    <Content Include="Views\Management\IndexUsr.cshtml" />
+    <Content Include="Views\Management\_UsrEdit.cshtml" />
+    <Content Include="Views\Management\_UsrAdd.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

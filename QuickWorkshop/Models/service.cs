@@ -11,18 +11,23 @@ namespace QuickWorkshop.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class service
     {
         public service()
         {
             this.ordersdetails = new HashSet<ordersdetail>();
         }
-    
+
         public int ServiceID { get; set; }
+        [Required(ErrorMessage = "Este campo no puede estar vacio")]
         public string Name { get; set; }
+        [Required(ErrorMessage = "Este campo no puede estar vacio")]
+        [DataType(DataType.Currency)]
         public double Price { get; set; }
-    
+        public string AddSError { get; set; }
+
         public virtual ICollection<ordersdetail> ordersdetails { get; set; }
     }
 }

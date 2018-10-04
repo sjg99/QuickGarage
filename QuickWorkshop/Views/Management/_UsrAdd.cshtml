@@ -1,0 +1,31 @@
+﻿@model QuickWorkshop.Models.user
+@{ 
+    List<string> positions = new List<string>();
+    positions.Add("Administrador");
+    positions.Add("Empleado");
+    System.Web.Mvc.SelectList positionslist = new SelectList(positions);    
+}
+
+<div class="contentform">
+    <h2 class="bugs">Empleado</h2>
+    <label class="txtlbl">Agregar</label>
+</div>
+@using (Html.BeginForm("AddUsr", "Management", FormMethod.Post))
+{
+    <div class="formDomain">
+        <h2 class="titlefield">Registrar un Empleado</h2>
+        <form class="Dnsform">
+            @Html.EditorFor(model => model.UserID, new { htmlAttributes = new { @class = "domain-container", @placeholder = "Documento de Identificación", @Value="" } })
+            @Html.ValidationMessageFor(model => model.UserID)
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "domain-container", @placeholder = "Email" } })
+            @Html.ValidationMessageFor(model => model.Email)
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "domain-container", @placeholder = "Password" } })
+            @Html.ValidationMessageFor(model => model.Password)
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "domain-container", @placeholder = "Nombre" } })
+            @Html.ValidationMessageFor(model => model.Name)
+            @Html.DropDownListFor(model => model.Position, positionslist, new {@class = "domain-container select-field", @Value = "Seleccionar Cargo" })           
+        </form>
+        <button type="submit" id="Addr" class="btn-proceed">Agregar</button>
+        <div class="field-validation-error">@Html.DisplayFor(model => model.AddUError)</div>
+    </div>
+}

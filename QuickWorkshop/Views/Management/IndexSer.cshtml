@@ -5,7 +5,7 @@
     {
         Response.Redirect("~/");
     }
-    QuickWorkshop.Models.product p = new QuickWorkshop.Models.product();
+    QuickWorkshop.Models.service s = new QuickWorkshop.Models.service();
 }
 
 <!DOCTYPE html>
@@ -49,7 +49,7 @@
     <div class="Ventana">
         <!-- ventana de ajuste -->
         <div id="AddWindow" class="VentanaAdd">
-            @{ Html.RenderPartial("_ProAdd", p); }
+            @{ Html.RenderPartial("_SerAdd", s); }
         </div>
     </div>
     <section class="contenedor-padre">
@@ -66,35 +66,27 @@
         </div>
         <div class="derecha">
             <div class="contenedor">
-                @foreach (var x in Model.products)
+                @foreach (var x in Model.services)
                 {
                     <div class="caja">
                         <div class="caja-1">
-                            <img src="~/Design/Management/img/brake.png" alt="">
+                            <img src="~/Design/Management/img/tools.png" alt="">
                         </div>
                         <div class="caja-2">
                             <div class="info">
-                                @using (Ajax.BeginForm("EditPro", new AjaxOptions { UpdateTargetId = "AddWindow", InsertionMode = InsertionMode.Replace }))
+                                @using (Ajax.BeginForm("EditSer", new AjaxOptions { UpdateTargetId = "AddWindow", InsertionMode = InsertionMode.Replace }))
                                 {
-                                    @Html.HiddenFor(m => m.products.First().ProductId, new { Value = x.ProductId })
-                                    @Html.HiddenFor(m => m.products.First().Name, new { Value = x.Name })
-                                    @Html.HiddenFor(m => m.products.First().Quantity, new { Value = x.Quantity })
-                                    @Html.HiddenFor(m => m.products.First().Price, new { Value = x.Price })                                
+                                    @Html.HiddenFor(m => m.services.First().ServiceID, new { Value = x.ServiceID })
+                                    @Html.HiddenFor(m => m.services.First().Name, new { Value = x.Name })                                    
+                                    @Html.HiddenFor(m => m.services.First().Price, new { Value = x.Price })                                
                                 <h3 class="titulo">@x.Name</h3>
-                                if (x.Quantity <= 5)
-                                {
-                                    <p class="lowQ">Cantidad disponible: @x.Quantity</p>
-                                }
-                                else
-                                {
-                                    <p>Cantidad disponible: @x.Quantity</p>
-                                }
+                                <p>Precio: @x.Price</p>                               
                                 <button class="edit" type="submit">Editar</button>
                                 }
                             </div>
                         </div>
                     </div>
-                }              
+                }             
            </div>
         </div>
     </section>

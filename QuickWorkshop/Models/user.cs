@@ -19,7 +19,7 @@ namespace QuickWorkshop.Models
         {
             this.orders = new HashSet<order>();
         }
-    
+        [Required(ErrorMessage = "Este campo no puede estar vacio")]
         public int UserID { get; set; }
         [DataType(DataType.EmailAddress)]
         [Required(ErrorMessage = "Este campo no puede estar vacio")]
@@ -27,11 +27,14 @@ namespace QuickWorkshop.Models
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Este campo no puede estar vacio")]
         public string Password { get; set; }
+        [Required(ErrorMessage = "Este campo no puede estar vacio")]
         public string Name { get; set; }
         public string Position { get; set; }
         public string Status { get; set; }
         public string LoginError { get; set; }
-        
+        public string AddUError { get; set; }
+
+
 
         public virtual ICollection<order> orders { get; set; }
     }
