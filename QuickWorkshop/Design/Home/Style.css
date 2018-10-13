@@ -583,4 +583,31 @@ footer .rights {
     text-align: center;
   }
 }
+
+@media only screen and (min-width: 600px) and (max-width: 1600px) {
+  .SeccionHome .ContenedorHome {
+    left: 20%;
+  }
+  .SeccionHome .LoginContenedor .Login {
+    left: 30%;
+    top: 15%;
+    width: 40%;
+  }
+  .SeccionHome .LoginContenedor .Login .lbl {
+    font-size: 1.5em;
+    padding-bottom: 20px;
+  }
+  .SeccionHome .LoginContenedor .Login form {
+    width: 80%;
+  }
+  .SeccionHome .LoginContenedor .Login form .ContFormLogin .LoginCampos .input-container {
+    padding: 2px;
+    border-radius: 3px;
+    font-size: 1em;
+    margin: 7px 10px 5px 10px;
+  }
+  .SeccionHome .LoginContenedor .Login form .LoginBoton button {
+    font-size: 0.6em;
+  }
+}
 /*# sourceMappingURL=Style.css.map */

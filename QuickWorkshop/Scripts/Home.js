@@ -57,16 +57,17 @@ $('#Home').click(function() {
     $('.SeccionHome .LoginContenedor').css('display','block');
     $('.SeccionHome .LoginContenedor').css('opacity','1');
     $('nav, .SeccionAbout, .SeccionContact, .Background, .ContenedorHome, footer').css('filter', 'blur(5px)');
-  });
+});
 $('html').click(function() { 
     setTimeout(function(){
         $('.SeccionHome .LoginContenedor').css('display','none');
-    $('.SeccionHome .LoginContenedor').css('opacity','0');
-    $('nav, .SeccionAbout, .SeccionContact, .Background, .ContenedorHome, footer').css('filter', 'blur(0px)');
-      }, 1);          
+        $('.SeccionHome .LoginContenedor').css('opacity','0');
+        $('nav, .SeccionAbout, .SeccionContact, .Background, .ContenedorHome, footer').css('filter', 'blur(0px)');
+    }, 1);          
   });
   $('#LBoton, #LBoton2, .SeccionHome .LoginContenedor .Login').click(function(e){
     e.stopPropagation();
   });
+
   
  

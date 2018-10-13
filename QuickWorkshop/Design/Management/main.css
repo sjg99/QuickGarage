@@ -198,7 +198,8 @@ header nav .logo .container img {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
 }
-.contenedor-padre .derecha .contenedor .caja .caja-2 .lowQ{
+
+.contenedor-padre .derecha .contenedor .caja .caja-2 .lowQ {
   color: #eb0505;
 }
 
@@ -217,16 +218,16 @@ header nav .logo .container img {
 .VentanaAdd {
   position: absolute;
   left: 25%;
-  top: 15%; 
+  top: 15%;
   width: 45%;
   height: 60%;
-  min-height: 200px;   
+  min-height: 200px;
   background-color: #ffffff;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, .05), 0 1px 3px 0 rgba(0, 0, 0, .1);
   font-size: 1.39em;
   color: #ffffff;
   display: none;
-  border-radius: 5px;  
+  border-radius: 5px;
   z-index: 3;
 }
 
@@ -261,17 +262,18 @@ header nav .logo .container img {
   padding: 30px 28px;
 }
 
-.formDomain p{
-    color: #da4f25;
-    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
-    font-weight: 100;
-    font-size: 20px;    
+.formDomain p {
+  color: #da4f25;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 100;
+  font-size: 20px;
 }
-.formDomain table{
-    color: #da4f25;
-    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
-    font-weight: 100;
-    font-size: 20px;    
+
+.formDomain table {
+  color: #da4f25;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 100;
+  font-size: 20px;
 }
 
 
@@ -302,8 +304,9 @@ header nav .logo .container img {
   transition-duration: 0.3s;
   font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
 }
-#position{
-  
+
+#position {
+
   width: 90%;
   padding: 0.9em;
   margin: 1em;
@@ -328,4 +331,44 @@ header nav .logo .container img {
 
 .btn-proceed:hover {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  header nav {    
+    flex-wrap: wrap;    
+  }
+
+  header nav .perfil {
+    width: 100%;
+    justify-content: center;
+  }
+
+  header nav .perfil .contenedor-prof {
+    width: 100%;
+  }
+
+  header nav .perfil .contenedor-prof img {
+    margin-left: 0;
+    width: 40px;
+    height: 40px;
+  }
+  
+  header nav .perfil .contenedor-prof p {    
+    font-size: 1.2em;
+    margin-left: 25%;
+    margin-right: 10%;    
+  }
+
+  header nav .logo {
+    width: 100%;
+  }
+
+  header nav .logo .container {    
+    width: 100%;
+  }
+
+  header nav .logo .container img {
+    width: 70%;
+    margin-left: 20%;
+  }  
 }
