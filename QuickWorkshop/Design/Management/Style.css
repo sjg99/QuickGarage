@@ -1,0 +1,501 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+}
+
+header {
+  width: 100%;
+}
+
+header nav {
+  width: 100%;
+  background-color: #464241;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  float: right;
+}
+
+header nav .perfil {
+  width: 50%;
+}
+
+header nav .perfil .contenedor-prof {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  float: right;
+  padding: 0.5em 2.2em 0.5em 2.2em;
+  background-color: #3b3736;
+}
+
+header nav .perfil .contenedor-prof img {
+  margin-left: 1em;
+  width: 35px;
+  height: 35px;
+}
+
+header nav .perfil .contenedor-prof p {
+  margin: auto;
+  color: #ffffff;
+  font-size: 0.9em;
+  font-family: 'Open Sans', sans-serif;
+}
+
+header nav .logo {
+  width: 50%;
+}
+
+header nav .logo .container {
+  background-color: #fc5329;
+  width: 240px;
+}
+
+header nav .logo .container img {
+  width: 240px;
+}
+
+.infoBar {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.5em 1em 0.5em 1em;
+}
+
+.infoBar .ajustes {
+  width: 50%;
+  margin: auto;
+}
+
+.infoBar .ajustes h2 {
+  width: 100%;
+  text-align: left;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  color: #8a8989;
+  letter-spacing: 1px;
+}
+
+.infoBar .iconos {
+  width: 50%;
+}
+
+.infoBar .iconos .cajaadd {
+  max-width: 45px;
+  float: right;
+  border: 1px solid #9CA0A3;
+  padding: 0.41em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+}
+
+.infoBar .iconos .cajaadd img {
+  max-width: 20px;
+  margin: auto;
+}
+
+.infoBar .iconos .cajaadd:hover {
+  cursor: pointer;
+}
+
+.contenedor-padre {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.contenedor-padre .izq {
+  width: 20%;
+  background-color: #f8f7f7;
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  padding: 2.5em 2em 2.5em 2em;
+}
+
+.contenedor-padre .izq .txtContenedor {
+  width: 100%;
+  text-align: left;
+}
+
+.contenedor-padre .izq .txtContenedor h2 {
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
+  color: #000;
+  margin-bottom: 1.2em;
+  letter-spacing: 1px;
+}
+
+.contenedor-padre .izq .txtContenedor a {
+  font-size: 14px;
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  color: #898D90;
+  text-decoration: none;
+  margin-bottom: 1.03em;
+  letter-spacing: 1px;
+}
+
+.contenedor-padre .izq .txtContenedor a:hover {
+  color: #fa8b6a;
+  letter-spacing: 1.5px;
+}
+
+.contenedor-padre .derecha {
+  width: 80%;
+  background-color: #fff8f5;
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.contenedor-padre .derecha .contenedor {
+  width: 100%;
+  padding: 1.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.contenedor-padre .derecha .contenedor .caja {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1em 0.5em 1em 0.5em;
+}
+
+.contenedor-padre .derecha .contenedor .caja .caja-1 {
+  max-width: 128px;
+  padding: 1em;
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  background-color: #ffffff;
+}
+
+.contenedor-padre .derecha .contenedor .caja .caja-1 img {
+  max-width: 68px;
+}
+
+.contenedor-padre .derecha .contenedor .caja-2 {
+  padding-left: 1em;
+  padding-right: 0.5em;
+}
+
+.contenedor-padre .derecha .contenedor .caja-2 h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.contenedor-padre .derecha .contenedor .caja-2 p {
+  margin-top: 0.5em;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+.contenedor-padre .derecha .contenedor .caja-2 lowQ {
+  color: #eb0505;
+}
+
+.contenedor-padre .derecha .contenedor .caja-2 button {
+  border: none;
+  border-radius: 2px;
+  border: 1px solid #da4f25;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #da4f25;
+  color: #fff;
+  margin-top: 1em;
+  width: 100%;
+  padding: 0.3em 2.5em 0.3em 2.5em;
+}
+
+.Ventana {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #00000044;
+  z-index: 2;
+  display: none;
+}
+
+.Ventana .VentanaAdd {
+  position: relative;
+  left: 25%;
+  top: 15%;
+  width: 45%;
+  height: 60%;
+  min-height: 200px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  font-size: 1.39em;
+  color: #ffffff;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.Ventana .VentanaAdd .contentform {
+  width: 43%;
+  border-radius: 5px 0 0 5px;
+  background-color: #F2F2F2;
+}
+
+.Ventana .VentanaAdd .contentform .bugs {
+  color: #da4f25;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 100;
+  font-size: 35px;
+  padding-top: 77%;
+  text-align: center;
+}
+
+.Ventana .VentanaAdd .contentform .txtlbl {
+  color: #333333;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 100;
+  font-size: 22px;
+  padding-top: 77%;
+  padding-left: 37%;
+}
+
+.Ventana .VentanaAdd .formDomain {
+  background-color: #fff;
+  width: 65%;
+  border-radius: 0 5px 5px 0;
+  padding: 30px 28px;
+}
+
+.Ventana .VentanaAdd .formDomain p {
+  color: #da4f25;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+}
+
+.Ventana .VentanaAdd .formDomain table {
+  color: #da4f25;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+}
+
+.Ventana .VentanaAdd .formDomain .titlefield {
+  color: #333333;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  padding-bottom: 10%;
+}
+
+.Ventana .VentanaAdd .formDomain .domain-container {
+  margin: 1em;
+  width: 90%;
+  padding: 18px;
+  border: none;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+}
+
+.Ventana .VentanaAdd .formDomain .field-validation-error {
+  width: 100%;
+  text-align: center;
+  font-size: .875rem;
+  padding: 5%;
+  margin-bottom: 1em;
+  color: #f73131;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+}
+
+.Ventana .VentanaAdd .formDomain #position {
+  width: 90%;
+  padding: 0.9em;
+  margin: 1em;
+}
+
+.Ventana .VentanaAdd .formDomain .select-field {
+  width: 100%;
+  padding: 0.9em;
+  margin-bottom: 1em;
+}
+
+.Ventana .VentanaAdd .formDomain .btn-proceed {
+  background-color: #da4f25;
+  border: none;
+  width: 100%;
+  border-radius: 2px;
+  color: #fff;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.Ventana .VentanaAdd .formDomain .btn-proceed:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  header nav {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  header nav .perfil {
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  header nav .perfil .contenedor-prof {
+    width: 100%;
+  }
+  header nav .perfil .contenedor-prof img {
+    margin-left: 0;
+  }
+  header nav .perfil .contenedor-prof p {
+    font-size: 1.2em;
+    margin-left: 25%;
+    margin-right: 10%;
+  }
+  header nav .logo {
+    width: 100%;
+  }
+  header nav .logo .container {
+    width: 100%;
+  }
+  header nav .logo .container img {
+    width: 70%;
+    margin-left: 20%;
+  }
+  .contenedor-padre {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .contenedor-padre .izq {
+    width: 100%;
+  }
+  .contenedor-padre .derecha {
+    width: 100%;
+  }
+  .contenedor-padre .derecha .contenedor .caja {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .contenedor-padre .derecha .contenedor .caja .caja-1 {
+    max-width: 300px;
+  }
+  .contenedor-padre .derecha .contenedor .caja .caja-1 img {
+    max-width: 100px;
+  }
+  .Ventana .VentanaAdd {
+    left: 5%;
+    top: 7.5%;
+    width: 90%;
+    height: 85%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .Ventana .VentanaAdd .contentform {
+    width: 100%;
+    height: 18%;
+    border-radius: 1px 0 0 1px;
+    background-color: #F2F2F2;
+  }
+  .Ventana .VentanaAdd .contentform .bugs {
+    color: #da4f25;
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    padding-top: 5%;
+    text-align: center;
+  }
+  .Ventana .VentanaAdd .contentform .txtlbl {
+    padding-top: 0;
+    padding-left: 40%;
+    font-size: 15px;
+    text-align: center;
+  }
+  .Ventana .VentanaAdd .formDomain {
+    background-color: #fff;
+    width: 100%;
+    height: 82%;
+    border-radius: 0 5px 5px 0;
+    padding: 5% 5% 0 5%;
+  }
+  .Ventana .VentanaAdd .formDomain p {
+    color: #da4f25;
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+  }
+  .Ventana .VentanaAdd .formDomain table {
+    color: #da4f25;
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+  }
+  .Ventana .VentanaAdd .formDomain .titlefield {
+    color: #333333;
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 100;
+    font-size: 0.7em;
+    padding-bottom: 5%;
+  }
+  .Ventana .VentanaAdd .formDomain .domain-container {
+    margin: 0 0 1em 0;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+  }
+  .Ventana .VentanaAdd .formDomain .field-validation-error {
+    width: 100%;
+    text-align: center;
+    font-size: .875rem;
+    padding: 5%;
+    margin-bottom: 1em;
+    color: #f73131;
+    -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  }
+  .Ventana .VentanaAdd .formDomain #position {
+    width: 90%;
+    padding: 0.9em;
+    margin: 1em;
+  }
+  .Ventana .VentanaAdd .formDomain .select-field {
+    width: 100%;
+    padding: 0.9em;
+    margin-bottom: 1em;
+  }
+  .Ventana .VentanaAdd .formDomain .btn-proceed {
+    background-color: #da4f25;
+    border: none;
+    width: 100%;
+    border-radius: 1px;
+    color: #fff;
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+    padding: 7px;
+    font-size: 0.7em;
+  }
+  .Ventana .VentanaAdd .formDomain .btn-proceed:hover {
+    cursor: pointer;
+  }
+}
+/*# sourceMappingURL=Style.css.map */
