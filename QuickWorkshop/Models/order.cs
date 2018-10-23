@@ -11,7 +11,8 @@ namespace QuickWorkshop.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class order
     {
         public order()
@@ -21,6 +22,7 @@ namespace QuickWorkshop.Models
         }
     
         public int OrderId { get; set; }
+        [DataType(DataType.DateTime)]
         public string Date { get; set; }
         public double TotalPrice { get; set; }
         public int ProductQ { get; set; }

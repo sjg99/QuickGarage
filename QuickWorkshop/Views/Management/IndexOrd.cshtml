@@ -5,7 +5,7 @@
     {
         Response.Redirect("~/");
     }
-    QuickWorkshop.Models.service s = new QuickWorkshop.Models.service();
+    QuickWorkshop.Models.order o = new QuickWorkshop.Models.order();
 }
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="~/Design/Management/Style.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
-    <title>QPanel | Servicios</title>
+    <title>QPanel | Facturacion</title>
 </head>
 
 <body>
@@ -49,7 +49,7 @@
     <div class="Ventana">
         <!-- ventana de ajuste -->
         <div id="AddWindow" class="VentanaAdd">
-            @{ Html.RenderPartial("_SerAdd", s); }
+           
         </div>
     </div>
     <section class="contenedor-padre">
@@ -66,27 +66,33 @@
         </div>
         <div class="derecha">
             <div class="contenedor">
-                @foreach (var x in Model.services)
+                @foreach (var x in Model.orders)
                 {
                     <div class="caja">
                         <div class="caja-1">
-                            <img src="~/Design/Management/img/tools.png" alt="">
+                            <img src="~/Design/Management/img/brake.png" alt="">
                         </div>
                         <div class="caja-2">
                             <div class="info">
-                                @using (Ajax.BeginForm("EditSer", new AjaxOptions { UpdateTargetId = "AddWindow", InsertionMode = InsertionMode.Replace }))
+                                @using (Ajax.BeginForm("ViewOrd", new AjaxOptions { UpdateTargetId = "AddWindow", InsertionMode = InsertionMode.Replace }))
                                 {
-                                    @Html.HiddenFor(m => m.services.First().ServiceID, new { Value = x.ServiceID })
-                                    @Html.HiddenFor(m => m.services.First().Name, new { Value = x.Name })                                    
-                                    @Html.HiddenFor(m => m.services.First().Price, new { Value = x.Price })                                
-                                <h3 class="titulo">@x.Name</h3>
-                                <p>Precio: @x.Price</p>                               
-                                <button class="edit" type="submit">Editar</button>
+                                    @Html.HiddenFor(m => m.orders.First().OrderId, new { Value = x.OrderId })
+                                    @Html.HiddenFor(m => m.orders.First().Date, new { Value = x.Date })
+                                    @Html.HiddenFor(m => m.orders.First().TotalPrice, new { Value = x.TotalPrice })
+                                    @Html.HiddenFor(m => m.orders.First().ProductQ, new { Value = x.ProductQ })
+                                    @Html.HiddenFor(m => m.orders.First().ServiceQ, new { Value = x.ServiceQ })
+                                    @Html.HiddenFor(m => m.orders.First().Status, new { Value = x.Status })
+                                    @Html.HiddenFor(m => m.orders.First().UserId, new { Value = x.UserId })
+                                    @Html.HiddenFor(m => m.orders.First().CustomerId, new { Value = x.CustomerId })
+
+                                    <h3 class="titulo">Factura #@x.OrderId</h3>                                 
+                                    <p>Cantidad disponible: @x.TotalPrice</p>
+                                    <button class="edit" type="submit">Editar</button>
                                 }
                             </div>
                         </div>
                     </div>
-                }             
+                }              
            </div>
         </div>
     </section>

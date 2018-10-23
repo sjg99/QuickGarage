@@ -96,7 +96,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Design\Home\StyleW.css" />
-    <Content Include="Design\Management\main.css" />
     <Content Include="Design\Management\img\add.png" />
     <Content Include="Design\Management\img\brake.png" />
     <Content Include="Design\Management\img\cart.png" />
@@ -106,6 +105,7 @@
     <Content Include="Design\Management\img\tools.png" />
     <Content Include="Design\Management\img\user.png" />
     <Content Include="Design\Management\index.html" />
+    <Content Include="Design\Management\Style.css" />
     <Content Include="Models\QGDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>QGDB.Context.cs</LastGenOutput>
@@ -137,6 +137,8 @@
     <Content Include="Models\QGDB.edmx.diagram">
       <DependentUpon>QGDB.edmx</DependentUpon>
     </Content>
+    <Content Include="Design\Management\Style.css.map" />
+    <Content Include="Design\Management\Style.scss" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -212,6 +214,7 @@
     <Content Include="Views\Management\_UsrEdit.cshtml" />
     <Content Include="Views\Management\_UsrAdd.cshtml" />
     <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Management\IndexOrd.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

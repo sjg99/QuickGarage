@@ -15,9 +15,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="~/Design/Management/main.css" rel="stylesheet" />
+    <link href="~/Design/Management/Style.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
-    <title>CPanel | Menu</title>
+    <title>QPanel | Inventario</title>
 </head>
 
 <body>
@@ -59,7 +59,7 @@
                 @Html.ActionLink("Productos", "GetProducts")
                 @Html.ActionLink("Servicios", "GetServices")
                 @Html.ActionLink("Empleados", "GetUsers")
-                @Html.ActionLink("Facturación-No Disponible", "GetOrders")
+                @Html.ActionLink("Facturación", "GetOrders")
                 <h2>Cuenta</h2>
                 <a href="@Url.Action("LogOut", "Management")">Cerrar Sesión</a>
             </div>
