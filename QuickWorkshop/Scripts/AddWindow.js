@@ -1,12 +1,14 @@
-$('.iconos .cajaadd, .edit').click(function(){  
+$('.iconos .cajaadd, .edit, .izq .icono').click(function(){  
   $('.Ventana').css('display', 'block');
-  $('nav, .infoBar, .contenedor-padre').css('filter', 'blur(2px)'); 
+  $('nav, .infoBar, .contenedor-padre').css('filter', 'blur(2px)');
+  var x = document.getElementById("ib"); 
+  x.className = "infoBar"; 
 });
 $('html').click(function(){
   $('.Ventana').css('display', 'none');
   $('nav, .infoBar, .contenedor-padre').css('filter', 'blur(0px)');  
 });
-$('.iconos .cajaadd, .VentanaAdd, .edit').click(function(e){
+$('.iconos .cajaadd, .VentanaAdd, .edit, .izq .icono').click(function(e){
   e.stopPropagation();
 });
 function topnav() {
