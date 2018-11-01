@@ -78,6 +78,21 @@ header nav .logo .container img {
   letter-spacing: 1px;
 }
 
+.infoBar .dropicon {
+  display: none;
+  height: 40px;
+}
+
+.infoBar .dropicon a {
+  font-size: 1.8em;
+  text-decoration: none;
+  color: #414141;
+}
+
+.infoBar .dropicon:hover {
+  cursor: pointer;
+}
+
 .infoBar .iconos {
   width: 50%;
 }
@@ -88,7 +103,7 @@ header nav .logo .container img {
   border: 1px solid #9CA0A3;
   padding: 0.41em;
   margin-right: 0.2em;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 
 .infoBar .iconos .cajaadd img {
@@ -98,6 +113,70 @@ header nav .logo .container img {
 
 .infoBar .iconos .cajaadd:hover {
   cursor: pointer;
+}
+
+.infoBar .izq {
+  display: none;
+  padding: 1em;
+}
+
+.infoBar .izq .txtContenedor {
+  width: 100%;
+  text-align: left;
+}
+
+.infoBar .izq .txtContenedor h2 {
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
+  color: #000;
+  margin-bottom: 1.2em;
+  letter-spacing: 1px;
+}
+
+.infoBar .izq .txtContenedor .icono {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  float: right;
+}
+
+.infoBar .izq .txtContenedor .icono span {
+  padding-top: 0.7em;
+  float: left;
+  font-family: 'Open Sans', sans-serif;
+  color: #ff6537;
+  margin-right: 10px;
+}
+
+.infoBar .izq .txtContenedor .icono .cajaadd {
+  max-width: 50px;
+}
+
+.infoBar .izq .txtContenedor .icono .cajaadd img {
+  padding: 0.41em;
+  border-radius: 2px;
+  border: 1px solid #fafafa;
+  max-width: 45px;
+  margin: auto;
+}
+
+.infoBar .izq .txtContenedor .icono .cajaadd:hover {
+  cursor: pointer;
+}
+
+.infoBar .izq .txtContenedor a {
+  font-size: 14px;
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  color: #898D90;
+  text-decoration: none;
+  margin-bottom: 1.03em;
+  letter-spacing: 1px;
+}
+
+.infoBar .izq .txtContenedor a:hover {
+  color: #fa8b6a;
+  letter-spacing: 1.5px;
 }
 
 .contenedor-padre {
@@ -376,15 +455,83 @@ header nav .logo .container img {
     width: 70%;
     margin-left: 20%;
   }
+  .infoBar {
+    height: 3em;
+  }
+  .infoBar .iconos {
+    display: none;
+  }
+  .infoBar .dropicon {
+    float: right;
+    display: block;
+  }
+  .infoBar.responsive {
+    -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    padding: 0;
+    position: fixed;
+    background-color: #f8f8f8;
+    z-index: 2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 55vh;
+  }
+  .infoBar.responsive .ajustes {
+    background-color: #ff5c2b;
+    padding: 1.3em;
+    margin: 0;
+    float: left;
+    width: 100%;
+    height: 4em;
+  }
+  .infoBar.responsive .ajustes h2 {
+    color: #f8f8f8;
+    font-size: 1.2em;
+  }
+  .infoBar.responsive .dropicon {
+    position: absolute;
+    right: 20px;
+    top: 17px;
+  }
+  .infoBar.responsive .dropicon a {
+    color: #f8f8f8;
+  }
+  .infoBar.responsive .izq {
+    width: 100%;
+    padding-left: 10%;
+    display: block;
+  }
+  .infoBar.responsive .izq .txtContenedor h2 {
+    font-size: 1em;
+    color: #3a3a3a;
+  }
+  .infoBar.responsive .izq .txtContenedor .icono {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+  }
+  .infoBar.responsive .izq .txtContenedor .icono span {
+    float: left;
+  }
+  .infoBar.responsive .izq .txtContenedor a {
+    font-size: 0.9em;
+  }
   .contenedor-padre {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
   .contenedor-padre .izq {
     width: 100%;
+    display: none;
   }
   .contenedor-padre .derecha {
     width: 100%;
+    height: 200%;
   }
   .contenedor-padre .derecha .contenedor .caja {
     display: -webkit-box;
