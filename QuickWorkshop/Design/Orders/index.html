@@ -65,87 +65,100 @@
         <div class="derecha">
             <div class="contenedor">
                 <div class="OrdHeader">
-                    <label>Order #1</label>
-                    <label>11/04/18 8:41</label>
+                    <label class="date">11/04/18 8:41</label>
+                    <label class="ordern">Order #1</label>
                 </div>
                 <div class="OrdInfo">
                     <input type="text" placeholder="Customer ID">
-                    <label>Status: To Start</label>
+                    <label>Status</label>
                 </div>
                 <div class="OrdInserts">
                     <div class="Add">
                         <form action="">
-                            <input type="text" placeholder="Product">
-                            <input type="text" placeholder="Quantity">
-                            <Button type="submit">Add Product</Button>
+                            <select class="ordins">
+                                <option value="1">Product 1</option>
+                                <option value="2">Product 2</option>
+                                <option value="3">Product 3</option>
+                                <option value="4">Product 4</option>
+                            </select>
+                            <input class="ordins" type="text" placeholder="Quantity">
+                            <Button class="ordins" type="submit">Add Product</Button>
                         </form>
                     </div>
-                    <div class="Add">
+                    <div class="Add s">
                         <form action="">
-                            <input type="text" placeholder="Service">
-                            <Button type="submit">Add Service</Button>
+                            <select class="ordins">
+                                <option value="1">Service 1</option>
+                                <option value="2">Service 2</option>
+                                <option value="3">Service 3</option>
+                            </select>
+                            <Button class="ordins" type="submit">Add Service</Button>
                         </form>
                     </div>
                 </div>
-                <div class="OrdProducts">
-                    <table>
-                        <tr>
-                            <th>Product ID</th>
-                            <th>Product</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Product 4</td>
-                            <td>3</td>
-                            <td>150000</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Product 4</td>
-                            <td>3</td>
-                            <td>150000</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Product 4</td>
-                            <td>3</td>
-                            <td>150000</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="OrdServices">
-                    <table>
-                        <tr>
-                            <th>Service ID</th>
-                            <th>Service</th>
-                            <th>Price</th>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Service 3</td>
-                            <td>30000</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Service 3</td>
-                            <td>30000</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Service 3</td>
-                            <td>30000</td>
-                        </tr>
-                    </table>
+                <div class="AddedTables">
+                    <div class="ptable">
+                        <table>
+                            <tr>
+                                <th>Product ID</th>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Product 4</td>
+                                <td>3</td>
+                                <td>150000</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Product 4</td>
+                                <td>3</td>
+                                <td>150000</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Product 4</td>
+                                <td>3</td>
+                                <td>150000</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="stable">
+                        <table>
+                            <tr>
+                                <th>Service ID</th>
+                                <th>Service</th>
+                                <th>Price</th>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Service 3</td>
+                                <td>30000</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Service 3</td>
+                                <td>30000</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Service 3</td>
+                                <td>30000</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
                 <div class="OrdTotals">
                     <div class="Totals">
                         <label>Products Quantity: 9</label>
                         <label>Services Quantity: 3</label>
-                        <label>Total Price: 540000</label>
+                        <label class="tp">Total Price: 540000</label>
                     </div>
-                    <button type="submit">Submit</button>
+                    <div class="btn">
+                        <button type="submit">Submit</button>
+                    </div>                    
                 </div>
             </div>
         </div>

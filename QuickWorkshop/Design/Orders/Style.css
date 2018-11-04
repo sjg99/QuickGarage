@@ -228,16 +228,206 @@ header nav .logo .container img {
   background-color: #fff8f5;
   -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
 }
 
 .contenedor-padre .derecha .contenedor {
   width: 100%;
-  padding: 1.5em;
+  padding: 1.5em 3em 0 3em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contenedor-padre .derecha .contenedor input {
+  width: 15%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  font-size: 0.9em;
+}
+
+.contenedor-padre .derecha .contenedor select {
+  width: 15%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  font-size: 0.9em;
+}
+
+.contenedor-padre .derecha .contenedor button {
+  background-color: #da4f25;
+  border: none;
+  width: 15%;
+  border-radius: 2px;
+  color: #fff;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  padding: 10px;
+  font-size: 0.9em;
+}
+
+.contenedor-padre .derecha .contenedor .OrdHeader {
+  margin-bottom: 1.5em;
+}
+
+.contenedor-padre .derecha .contenedor .OrdHeader .date {
+  font-size: 1em;
+  font-weight: 400;
+  float: left;
+  color: #da4f25;
+}
+
+.contenedor-padre .derecha .contenedor .OrdHeader .ordern {
+  font-size: 1.5em;
+  font-weight: 500;
+  float: right;
+  color: #da4f25;
+}
+
+.contenedor-padre .derecha .contenedor .OrdInfo {
+  margin-bottom: 1.5em;
+  margin-left: 20%;
+}
+
+.contenedor-padre .derecha .contenedor .OrdInfo label {
+  float: right;
+}
+
+.contenedor-padre .derecha .contenedor .OrdInserts .Add {
+  margin-left: 20%;
+  margin-bottom: 1em;
+}
+
+.contenedor-padre .derecha .contenedor .OrdInserts .Add form {
+  width: 80%;
+}
+
+.contenedor-padre .derecha .contenedor .OrdInserts .Add form .ordins {
+  width: 25%;
+  margin-right: 2.5%;
+}
+
+.contenedor-padre .derecha .contenedor .OrdInserts .Add.s {
+  margin-bottom: 1.5em;
+  margin-left: 37.9%;
+}
+
+.contenedor-padre .derecha .contenedor .OrdInserts .Add.s form {
+  width: 100%;
+}
+
+.contenedor-padre .derecha .contenedor .OrdInserts .Add.s form .ordins {
+  width: 25.8%;
+  margin-right: 2.5%;
+}
+
+.contenedor-padre .derecha .contenedor .AddedTables {
+  width: 100%;
+  padding: 0 20% 0 20%;
+}
+
+.contenedor-padre .derecha .contenedor .AddedTables .ptable {
+  margin-bottom: 1em;
+}
+
+.contenedor-padre .derecha .contenedor .AddedTables .ptable table {
+  width: 86.5%;
+  border-collapse: collapse;
+}
+
+.contenedor-padre .derecha .contenedor .AddedTables .ptable table tr:nth-child(even) {
+  background-color: #ffe7e0;
+}
+
+.contenedor-padre .derecha .contenedor .AddedTables .ptable table tr:nth-child(odd) {
+  background-color: #fff1e7;
+}
+
+.contenedor-padre .derecha .contenedor .AddedTables .ptable table th {
+  background-color: #5a5a5a;
+  color: #F2F2F2;
+  font-weight: 500;
+  padding: 0.5em 0 0.5em 0;
+  width: 25%;
+}
+
+.contenedor-padre .derecha .contenedor .AddedTables .ptable table td {
+  text-align: center;
+  padding: 0.5em 0 0.5em 0;
+  color: #333333;
+}
+
+.contenedor-padre .derecha .contenedor .AddedTables .stable {
+  margin-bottom: 1.5em;
+}
+
+.contenedor-padre .derecha .contenedor .AddedTables .stable table {
+  width: 86.5%;
+  border-collapse: collapse;
+}
+
+.contenedor-padre .derecha .contenedor .AddedTables .stable table tr:nth-child(even) {
+  background-color: #ffe7e0;
+}
+
+.contenedor-padre .derecha .contenedor .AddedTables .stable table tr:nth-child(odd) {
+  background-color: #fff1e7;
+}
+
+.contenedor-padre .derecha .contenedor .AddedTables .stable table th {
+  background-color: #5a5a5a;
+  color: #F2F2F2;
+  font-weight: 500;
+  padding: 0.5em 0 0.5em 0;
+  width: 33.3%;
+}
+
+.contenedor-padre .derecha .contenedor .AddedTables .stable table td {
+  text-align: center;
+  padding: 0.5em 0 0.5em 0;
+  color: #333333;
+}
+
+.contenedor-padre .derecha .contenedor .OrdTotals {
+  padding: 0 28% 0 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contenedor-padre .derecha .contenedor .OrdTotals .Totals {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+
+.contenedor-padre .derecha .contenedor .OrdTotals .Totals label {
+  width: 100%;
+  padding-top: 1em;
+  padding-right: 2%;
+  text-align: right;
+}
+
+.contenedor-padre .derecha .contenedor .OrdTotals .Totals .tp {
+  color: #da4f25;
+}
+
+.contenedor-padre .derecha .contenedor .OrdTotals button {
+  margin-top: 1.5em;
+  float: right;
+  width: 30%;
 }
 
 @media only screen and (max-width: 600px) {
