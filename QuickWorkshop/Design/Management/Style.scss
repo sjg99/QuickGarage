@@ -440,6 +440,7 @@ header {
 
     .infoBar {
         height: 3em;
+        padding: 0.15em 0.5em 0.2em 0.5em;
 
         .iconos {
             display: none;
@@ -474,8 +475,8 @@ header {
         }
         .dropicon {
             position: absolute;
-            right: 20px;
-            top: 17px;
+            right: 0.7em;
+            top: 0.9em;
             a{
                 color: #f8f8f8;
             }
@@ -515,7 +516,7 @@ header {
 
         .derecha {
             width: 100%;
-            height: 200%;
+            min-height: 130vh;            
 
             .contenedor {
 
