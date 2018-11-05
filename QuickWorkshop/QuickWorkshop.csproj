@@ -208,6 +208,7 @@
       <DependentUpon>QGDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\DetailsLists.cs" />
     <Compile Include="ViewModels\OrdersLoading.cs" />
     <Compile Include="ViewModels\ManagementLoading.cs" />
   </ItemGroup>
@@ -231,6 +232,7 @@
     <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Management\IndexOrd.cshtml" />
     <Content Include="Views\Management\OrdAdd.cshtml" />
+    <Content Include="Views\Management\_AddedDet.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

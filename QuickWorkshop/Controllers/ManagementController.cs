@@ -22,6 +22,11 @@ namespace QuickWorkshop.Controllers
             OrdersLoading ol = new OrdersLoading();
             return ol;
         }
+        private DetailsLists detailsLists()
+        {
+            DetailsLists dl = new DetailsLists();
+            return dl;
+        }
         public ActionResult Index()
         {
             return View(managementLoading());
@@ -44,6 +49,8 @@ namespace QuickWorkshop.Controllers
         }
         public ActionResult GetAddOrd()
         {
+            DetailsLists.ordpd.Clear();
+            DetailsLists.ordsd.Clear();
             return View("OrdAdd", ordersLoading());
         }
         [HttpPost]
@@ -193,6 +200,28 @@ namespace QuickWorkshop.Controllers
                     return PartialView("_UsrEdit", usermodel);
                 }
             }
+        }
+        public ActionResult AddPDet (orderpdetail orderpdetailmodel, int id)
+        {
+            orderpdetailmodel.OrderId = id;
+            using (QWDBEntities db = new QWDBEntities())
+            {
+                var GetProductPrice = db.products.Find(orderpdetailmodel.Productid).Price;
+                orderpdetailmodel.Price = GetProductPrice * orderpdetailmodel.Quantity;
+            }
+            DetailsLists.ordpd.Add(orderpdetailmodel);
+            return PartialView("_AddedDet", detailsLists());
+        }
+        public ActionResult AddSDet(ordersdetail ordersdetailmodel, int id)
+        {
+            ordersdetailmodel.OrderId = id;
+            using (QWDBEntities db = new QWDBEntities())
+            {
+                var GetServicePrice = db.services.Find(ordersdetailmodel.ServiceId).Price;
+                ordersdetailmodel.Price = GetServicePrice;
+            }
+            DetailsLists.ordsd.Add(ordersdetailmodel);
+            return PartialView("_AddedDet", detailsLists());
         }
         public ActionResult LogOut()
         {

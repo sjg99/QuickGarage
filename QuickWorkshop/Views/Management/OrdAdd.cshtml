@@ -81,111 +81,61 @@
             <div class="contenedor">
                 <div class="OrdHeader">
                     <label class="date">@Model.order.Date</label>
-                    <label class="ordern">Order #@Model.order.OrderId</label>
+                    <label class="ordern">Factura #@Model.order.OrderId</label>
                 </div>
                 <div class="OrdInfo">
-                    @Html.EditorFor(model => model.order.CustomerId, new { htmlAttributes = new { @placeholder = "Cedula Cliente" } })
+                    @Html.EditorFor(model => model.order.CustomerId, new { htmlAttributes = new { @placeholder = "Cedula Cliente", @Value = "" } })
                     <label>Estado: @Model.order.Status</label>
                 </div>
                 <div class="OrdInserts">
                     <div class="Add">
-                        <form action="">
-                            <select name="orderpdetail.Productid" class="ordins">
-                                @foreach(var p in Model.products)
-                                {
-                                <option value="@p.ProductId">@p.Name</option>
-                                }                              
+                        @using (Ajax.BeginForm("AddPDet", new { id = Model.order.OrderId }, new AjaxOptions { UpdateTargetId = "at", InsertionMode = InsertionMode.Replace }))
+                        {
+                                <select name="Productid" class="ordins">
+                                    @foreach (var p in Model.products)
+                                    {
+                                    <option value="@p.ProductId">@p.Name</option>
+                                    }
                                 </select>
-                            @Html.DropDownListFor(model => model.orderpdetail.Productid, prueba)
-                            @Html.EditorFor(model => model.orderpdetail.Quantity, new { htmlAttributes = new {@class="ordins", @placeholder = "Cedula Cliente" } })
-                            <Button class="ordins" type="submit">Add Product</Button>
-                        </form>
-                    </div>
+                                <input class="ordins" type="number" placeholder="Quantity" value="" name="Quantity" required="required">
+                                <Button class="ordins" type="submit">Agregar Producto</Button>
+                        }
+                        </div>
                     <div class="Add s">
-                        <form action="">
+                        @using (Ajax.BeginForm("AddSDet", new { id = Model.order.OrderId }, new AjaxOptions { UpdateTargetId = "at", InsertionMode = InsertionMode.Replace }))
+                        {
                             <select name="ServiceId" class="ordins">
                                 @foreach (var s in Model.services)
                                 {
                                     <option value="@s.ServiceID">@s.Name</option>
                                 }
                             </select>
-                            <Button class="ordins" type="submit">Add Service</Button>
-                        </form>
+                            <Button class="ordins" type="submit">Agregar Servicio</Button>
+                        }
+                        </div>
                     </div>
-                </div>
-                <div class="AddedTables">
-                    <div class="ptable">
-                        <table>
-                            <tr>
-                                <th>Product ID</th>
-                                <th>Product</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Product 4</td>
-                                <td>3</td>
-                                <td>150000</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Product 4</td>
-                                <td>3</td>
-                                <td>150000</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Product 4</td>
-                                <td>3</td>
-                                <td>150000</td>
-                            </tr>
-                        </table>
+                    <div id="at" class="AddedTables">
+
                     </div>
-                    <div class="stable">
-                        <table>
-                            <tr>
-                                <th>Service ID</th>
-                                <th>Service</th>
-                                <th>Price</th>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Service 3</td>
-                                <td>30000</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Service 3</td>
-                                <td>30000</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Service 3</td>
-                                <td>30000</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <div class="OrdTotals">
-                    <div class="Totals">
-                        <label>Cantidad Productos: @Model.order.ProductQ</label>
-                        <label>Cantidad de Servicios: @Model.order.ServiceQ</label>
-                        <label class="tp">Total: @Model.order.TotalPrice</label>
-                    </div>
-                    <div class="btn">
-                        <button type="submit">Submit</button>
+                    <div class="OrdTotals">
+                        <div class="Totals">
+                            <label>Cantidad Productos: @Model.order.ProductQ</label>
+                            <label>Cantidad de Servicios: @Model.order.ServiceQ</label>
+                            <label class="tp">Total: @Model.order.TotalPrice</label>
+                        </div>
+                        <div class="btn">
+                            <button type="submit">Guardar</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <script src="/Scripts/jquery-3.3.1.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/Scripts/Orders.js"></script>
-</body>
-</html>
-<!-- https://dribbble.com/shots/1986474-Application-Modul -->
+        </section>
+        <script src="/Scripts/jquery-3.3.1.js"></script>
+        <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        <script src="~/Scripts/Orders.js"></script>
+    </body>
+    </html>
+    <!-- https://dribbble.com/shots/1986474-Application-Modul -->
