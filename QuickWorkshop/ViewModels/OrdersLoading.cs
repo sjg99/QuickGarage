@@ -6,21 +6,35 @@ using QuickWorkshop.Models;
 
 namespace QuickWorkshop.ViewModels
 {
-    public class ManagementLoading
+    public class OrdersLoading
     {
+        public order order = new order();
+        public orderpdetail orderpdetail = new orderpdetail();
+        public ordersdetail ordersdetail = new ordersdetail();
         public List<product> products = new List<product>();
         public List<service> services = new List<service>();
-        public List<user> users = new List<user>();
-        public List<order> orders = new List<order>();
 
-        public ManagementLoading()
+        public OrdersLoading()
         {
             using (QWDBEntities db = new QWDBEntities())
             {
+                try
+                {
+                    var GetOrder = db.orders.Where(x => x.OrderId > 0).Last();
+                    order.OrderId = GetOrder.OrderId + 1;
+
+                }                
+                catch
+                {
+                    order.OrderId = 1;
+                }                
+                order.Date = DateTime.Now.ToString();
+                order.Status = "Por Iniciar";
+                order.ProductQ = 0;
+                order.ServiceQ = 0;
+                order.TotalPrice = 0;
                 var GetProducts = db.products.Where(x => x.ProductId > 0);
                 var GetServices = db.services.Where(x => x.ServiceID > 0);
-                var GetUsers = db.users.Where(x => x.Status == "Activo");
-                var GetOrders = db.orders.Where(x => x.OrderId > 0);
                 foreach (var r in GetProducts)
                 {
                     products.Add(r);
@@ -29,14 +43,7 @@ namespace QuickWorkshop.ViewModels
                 {
                     services.Add(r);
                 }
-                foreach (var r in GetUsers)
-                {
-                    users.Add(r);
-                }
-                foreach (var r in GetOrders)
-                {
-                    orders.Add(r);
-                }
+
             }
         }
     }

@@ -28,6 +28,7 @@ namespace QuickWorkshop.Controllers
                 }
                 else
                 {
+                    Session["id"] = UserConfirmation.UserID;
                     Session["email"] = UserConfirmation.Email;
                     Session["name"] = UserConfirmation.Name;
                     Session["position"] = UserConfirmation.Position;

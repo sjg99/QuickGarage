@@ -42,7 +42,7 @@
         </div>
         <div class="iconos">
             <div class="cajaadd">
-                <img src="~/Design/Management/img/add.png" alt="">
+                <a href="@Url.Action("GetAddOrd","Management")"><img src="~/Design/Management/img/add.png" alt=""></a>
             </div>
         </div>
         <div class="dropicon"><a href="javascript:topnav();">&#9776;</a></div>
@@ -52,7 +52,7 @@
                 <div class="icono">
                     <span>Add</span>
                     <div class="cajaadd">
-                        <img src="~/Design/Management/img/add.png" alt="">
+                        <a href="@Url.Action("GetAddOrd","Management")"><img src="~/Design/Management/img/add.png" alt=""></a>
                     </div>
                 </div>
                 @Html.ActionLink("Productos", "GetProducts")
@@ -63,13 +63,7 @@
                 <a href="@Url.Action("LogOut", "Management")">Cerrar Sesión</a>
             </div>
         </div>
-    </main>
-    <div class="Ventana">
-        <!-- ventana de ajuste -->
-        <div id="AddWindow" class="VentanaAdd">
-           
-        </div>
-    </div>
+    </main>    
     <section class="contenedor-padre">
         <div class="izq">
             <div class="txtContenedor">
@@ -119,7 +113,7 @@
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    <script src="/Scripts/AddWindow.js"></script>
+    <script src="~/Scripts/Orders.js"></script>
 </body>
 </html>
 <!-- https://dribbble.com/shots/1986474-Application-Modul -->

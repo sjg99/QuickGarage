@@ -17,6 +17,11 @@ namespace QuickWorkshop.Controllers
             ManagementLoading ml = new ManagementLoading();
             return ml;
         }
+        private OrdersLoading ordersLoading()
+        {
+            OrdersLoading ol = new OrdersLoading();
+            return ol;
+        }
         public ActionResult Index()
         {
             return View(managementLoading());
@@ -36,6 +41,10 @@ namespace QuickWorkshop.Controllers
         public ActionResult GetOrders()
         {
             return View("IndexOrd", managementLoading());
+        }
+        public ActionResult GetAddOrd()
+        {
+            return View("OrdAdd", ordersLoading());
         }
         [HttpPost]
         public ActionResult AddPro(product productmodel)
