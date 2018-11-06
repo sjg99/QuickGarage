@@ -8,6 +8,7 @@ namespace QuickWorkshop.ViewModels
 {
     public class OrdersLoading
     {
+        public static order ord = new order();
         public order order = new order();
         public orderpdetail orderpdetail = new orderpdetail();
         public ordersdetail ordersdetail = new ordersdetail();
@@ -21,18 +22,19 @@ namespace QuickWorkshop.ViewModels
                 try
                 {
                     var GetOrder = db.orders.Where(x => x.OrderId > 0).Last();
-                    order.OrderId = GetOrder.OrderId + 1;
+                    ord.OrderId = GetOrder.OrderId + 1;
 
                 }                
                 catch
                 {
-                    order.OrderId = 1;
+                    ord.OrderId = 1;
                 }                
-                order.Date = DateTime.Now.ToString();
-                order.Status = "Por Iniciar";
-                order.ProductQ = 0;
-                order.ServiceQ = 0;
-                order.TotalPrice = 0;
+                ord.Date = DateTime.Now.ToString();
+                ord.Status = "Por Iniciar";
+                ord.ProductQ = 0;
+                ord.ServiceQ = 0;
+                ord.TotalPrice = 0;
+                order = ord;
                 var GetProducts = db.products.Where(x => x.ProductId > 0);
                 var GetServices = db.services.Where(x => x.ServiceID > 0);
                 foreach (var r in GetProducts)

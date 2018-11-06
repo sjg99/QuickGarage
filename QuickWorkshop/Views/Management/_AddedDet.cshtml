@@ -1,38 +1,85 @@
 ﻿@model QuickWorkshop.ViewModels.DetailsLists
 
-<div class="ptable">
-    <table>
-        <tr>
-            <th>ID Producto</th>
-            <th>Producto</th>
-            <th>Cantidad</th>
-            <th>Precio</th>
-        </tr>
-        @foreach(var p in Model.orderpdetails)
-        {
-        <tr>
-            <td>@p.Productid</td>
-            <td>@Model.products.Find(x => x.ProductId == p.Productid).Name</td>
-            <td>@p.Quantity</td>
-            <td>@p.Price</td>
-        </tr>
-        }       
-    </table>
+<div class="OrdHeader">
+    <label class="date">@Model.order.Date</label>
+    <label class="ordern">Factura #@Model.order.OrderId</label>
 </div>
-<div class="stable">
-    <table>
-        <tr>
-            <th>ID Servicio</th>
-            <th>Servicio</th>
-            <th>Precio</th>
-        </tr>
-        @foreach (var s in Model.ordersdetails)
+<div class="OrdInfo">
+    @Html.EditorFor(model => model.order.CustomerId, new { htmlAttributes = new { @placeholder = "Cedula Cliente", @Value = "" } })
+    <label>Estado: @Model.order.Status</label>
+</div>
+<div class="OrdInserts">
+    <div class="Add">
+        @using (Ajax.BeginForm("AddPDet", new { id = Model.order.OrderId }, new AjaxOptions { UpdateTargetId = "at", InsertionMode = InsertionMode.Replace }))
         {
-        <tr>
-            <td>@s.ServiceId</td>
-            <td>@Model.services.Find(x=> x.ServiceID == s.ServiceId).Name</td>
-            <td>@s.Price</td>
-        </tr>
-        }        
-    </table>
+            <select name="Productid" class="ordins">
+                @foreach (var p in Model.productsopt)
+                {
+                    <option value="@p.ProductId">@p.Name</option>
+                }
+            </select>
+            <input class="ordins" type="number" placeholder="Quantity" value="" name="Quantity" required="required">
+            <Button class="ordins" type="submit">Agregar Producto</Button>
+        }
+    </div>
+    <div class="Add s">
+        @using (Ajax.BeginForm("AddSDet", new { id = Model.order.OrderId }, new AjaxOptions { UpdateTargetId = "at", InsertionMode = InsertionMode.Replace }))
+        {
+            <select name="ServiceId" class="ordins">
+                @foreach (var s in Model.servicesopt)
+                {
+                    <option value="@s.ServiceID">@s.Name</option>
+                }
+            </select>
+            <Button class="ordins" type="submit">Agregar Servicio</Button>
+        }
+    </div>
+</div>
+<div class="AddedTables">
+    <div class="ptable">
+        <table>
+            <tr>
+                <th>ID Producto</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+            </tr>
+            @foreach (var p in Model.orderpdetails)
+            {
+                <tr>
+                    <td>@p.Productid</td>
+                    <td>@Model.products.Find(x => x.ProductId == p.Productid).Name</td>
+                    <td>@p.Quantity</td>
+                    <td>@p.Price</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="stable">
+        <table>
+            <tr>
+                <th>ID Servicio</th>
+                <th>Servicio</th>
+                <th>Precio</th>
+            </tr>
+            @foreach (var s in Model.ordersdetails)
+            {
+                <tr>
+                    <td>@s.ServiceId</td>
+                    <td>@Model.services.Find(x => x.ServiceID == s.ServiceId).Name</td>
+                    <td>@s.Price</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<div class="OrdTotals">
+    <div class="Totals">
+        <label>Cantidad Productos: @Model.order.ProductQ</label>
+        <label>Cantidad de Servicios: @Model.order.ServiceQ</label>
+        <label class="tp">Total: @Model.order.TotalPrice</label>
+    </div>
+    <div class="btn">
+        <button type="submit">Guardar</button>
+    </div>
 </div>

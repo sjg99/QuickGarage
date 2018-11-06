@@ -4,9 +4,7 @@
     if (Session["email"] == null)
     {
         Response.Redirect("~/");
-    }
-    List<string> ts = new List<string>();
-    System.Web.Mvc.SelectList prueba = new SelectList(ts);
+    }    
 }
 
 <!DOCTYPE html>
@@ -78,7 +76,7 @@
             </div>
         </div>
         <div class="derecha">
-            <div class="contenedor">
+            <div class="contenedor" id="at">
                 <div class="OrdHeader">
                     <label class="date">@Model.order.Date</label>
                     <label class="ordern">Factura #@Model.order.OrderId</label>
@@ -114,7 +112,7 @@
                         }
                         </div>
                     </div>
-                    <div id="at" class="AddedTables">
+                    <div class="AddedTables">
 
                     </div>
                     <div class="OrdTotals">
