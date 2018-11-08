@@ -19,19 +19,11 @@ namespace QuickWorkshop.ViewModels
         {
             using (QWDBEntities db = new QWDBEntities())
             {
-                try
-                {
-                    var GetOrder = db.orders.Where(x => x.OrderId > 0);
-                    foreach (var o in GetOrder)
-                    {
-                        ord.OrderId += 1;
-                    }
-                    ord.OrderId += 1;
-                }                
-                catch
-                {
-                    ord.OrderId = 1;
-                }
+
+                var GetOrder = db.orders.OrderByDescending(x => x.OrderId).First();
+                ord.OrderId = GetOrder.OrderId+1;
+                               
+                
                 DateTime dt = DateTime.UtcNow.AddHours(-5);               
                 ord.Date = dt.ToString();
                 ord.Status = "Por Iniciar";

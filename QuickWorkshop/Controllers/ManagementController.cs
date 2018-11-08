@@ -241,33 +241,19 @@ namespace QuickWorkshop.Controllers
                     db.SaveChanges();
                     foreach (var p in DetailsLists.ordpd)
                     {
-                        var ProductDetailCreation = db.Set<orderpdetail>();
-                        ProductDetailCreation.Add(new orderpdetail { OrderId = p.OrderId, Productid = p.Productid, Quantity = p.Quantity, Price = p.Price });
+                        db.Database.ExecuteSqlCommand("INSERT INTO orderpdetails VALUES ("+p.OrderId+","+p.Productid+","+p.Quantity+","+p.Price+")");                      
                         db.SaveChanges();
                     }
                     foreach (var s in DetailsLists.ordsd)
                     {
-                        var ServiceDetailCreation = db.Set<ordersdetail>();
-                        ServiceDetailCreation.Add(new ordersdetail { OrderId = s.OrderId, ServiceId = s.ServiceId, Price = s.Price });
+                        db.Database.ExecuteSqlCommand("INSERT INTO ordersdetails VALUES (" + s.OrderId + "," + s.ServiceId + "," + s.Price + ")");
                         db.SaveChanges();
                     }
                     return RedirectToAction("GetOrders");
                 }
-                catch (DbEntityValidationException e)
+                catch 
                 {
-                    foreach (var eve in e.EntityValidationErrors)
-                    {
-                        System.Diagnostics.Debug.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
-                        foreach (var ve in eve.ValidationErrors)
-                        {
-                            System.Diagnostics.Debug.WriteLine("- Property: \"{0}\", Value: \"{1}\", Error: \"{2}\"",
-                            ve.PropertyName,
-                            eve.Entry.CurrentValues.GetValue<object>(ve.PropertyName),
-                            ve.ErrorMessage);
-                        }
-                    }
-                    throw;
+                    return new EmptyResult();
                 }
 
             }            

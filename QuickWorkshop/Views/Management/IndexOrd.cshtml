@@ -82,7 +82,7 @@
                 {
                     <div class="caja">
                         <div class="caja-1">
-                            <img src="~/Design/Management/img/brake.png" alt="">
+                            <img src="~/Design/Management/img/order.png" alt="">
                         </div>
                         <div class="caja-2">
                             <div class="info">
@@ -97,8 +97,8 @@
                                     @Html.HiddenFor(m => m.orders.First().UserId, new { Value = x.UserId })
                                     @Html.HiddenFor(m => m.orders.First().CustomerId, new { Value = x.CustomerId })
 
-                                    <h3 class="titulo">Factura #@x.OrderId</h3>                                 
-                                    <p>Cantidad disponible: @x.TotalPrice</p>
+                                    <h3 class="titulo">Factura #@x.OrderId Cliente: @x.CustomerId</h3>
+                                    <p>Precio Total: @x.TotalPrice</p>                                    
                                     <button class="edit" type="submit">Editar</button>
                                 }
                             </div>
