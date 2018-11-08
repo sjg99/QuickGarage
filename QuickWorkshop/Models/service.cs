@@ -19,7 +19,7 @@ namespace QuickWorkshop.Models
         {
             this.ordersdetails = new HashSet<ordersdetail>();
         }
-
+    
         public int ServiceID { get; set; }
         [Required(ErrorMessage = "Este campo no puede estar vacio")]
         public string Name { get; set; }

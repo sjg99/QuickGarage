@@ -424,10 +424,17 @@ header nav .logo .container img {
   color: #da4f25;
 }
 
-.contenedor-padre .derecha .contenedor .OrdTotals button {
+.contenedor-padre .derecha .contenedor .OrdTotals a {
   margin-top: 1.5em;
   float: right;
   width: 30%;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 400;
+  background-color: #da4f25;
+  padding: 0.7em 1em 0.7em 1em;
+  cursor: default;
 }
 
 @media only screen and (max-width: 600px) {

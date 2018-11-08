@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -49,6 +50,7 @@ namespace QuickWorkshop.Controllers
         }
         public ActionResult GetAddOrd()
         {
+            OrdersLoading.ord = new order();
             DetailsLists.ordpd.Clear();
             DetailsLists.ordsd.Clear();
             return View("OrdAdd", ordersLoading());
@@ -227,6 +229,48 @@ namespace QuickWorkshop.Controllers
         {
             OrdersLoading.ord.CustomerId = ordermodel.CustomerId;           
             return PartialView("_AddedDet", detailsLists());
+        }
+        public ActionResult AddOrd()
+        {
+            using (QWDBEntities db = new QWDBEntities())
+            {
+                try{
+                    int uid = (int)Session["id"];
+                    var OrderCreation = db.Set<order>();
+                    OrderCreation.Add(new order { CustomerId = OrdersLoading.ord.CustomerId, Date = OrdersLoading.ord.Date, ProductQ = OrdersLoading.ord.ProductQ, ServiceQ = OrdersLoading.ord.ServiceQ, Status = OrdersLoading.ord.Status, TotalPrice = OrdersLoading.ord.TotalPrice, UserId = uid });
+                    db.SaveChanges();
+                    foreach (var p in DetailsLists.ordpd)
+                    {
+                        var ProductDetailCreation = db.Set<orderpdetail>();
+                        ProductDetailCreation.Add(new orderpdetail { OrderId = p.OrderId, Productid = p.Productid, Quantity = p.Quantity, Price = p.Price });
+                        db.SaveChanges();
+                    }
+                    foreach (var s in DetailsLists.ordsd)
+                    {
+                        var ServiceDetailCreation = db.Set<ordersdetail>();
+                        ServiceDetailCreation.Add(new ordersdetail { OrderId = s.OrderId, ServiceId = s.ServiceId, Price = s.Price });
+                        db.SaveChanges();
+                    }
+                    return RedirectToAction("GetOrders");
+                }
+                catch (DbEntityValidationException e)
+                {
+                    foreach (var eve in e.EntityValidationErrors)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            System.Diagnostics.Debug.WriteLine("- Property: \"{0}\", Value: \"{1}\", Error: \"{2}\"",
+                            ve.PropertyName,
+                            eve.Entry.CurrentValues.GetValue<object>(ve.PropertyName),
+                            ve.ErrorMessage);
+                        }
+                    }
+                    throw;
+                }
+
+            }            
         }
         public ActionResult LogOut()
         {

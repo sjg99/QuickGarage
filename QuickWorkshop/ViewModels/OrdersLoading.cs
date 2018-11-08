@@ -21,9 +21,12 @@ namespace QuickWorkshop.ViewModels
             {
                 try
                 {
-                    var GetOrder = db.orders.Where(x => x.OrderId > 0).Last();
-                    ord.OrderId = GetOrder.OrderId + 1;
-
+                    var GetOrder = db.orders.Where(x => x.OrderId > 0);
+                    foreach (var o in GetOrder)
+                    {
+                        ord.OrderId += 1;
+                    }
+                    ord.OrderId += 1;
                 }                
                 catch
                 {

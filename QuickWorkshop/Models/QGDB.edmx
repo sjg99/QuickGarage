@@ -183,7 +183,7 @@ FROM `ordersdetails` AS `ordersdetails`</DefiningQuery>
             <PropertyRef Name="OrderId" />
           </Key>
           <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Date" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TotalPrice" Type="Double" Nullable="false" />
           <Property Name="ProductQ" Type="Int32" Nullable="false" />
           <Property Name="ServiceQ" Type="Int32" Nullable="false" />

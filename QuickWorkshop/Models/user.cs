@@ -7,6 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+
 namespace QuickWorkshop.Models
 {
     using System;
@@ -21,11 +22,11 @@ namespace QuickWorkshop.Models
         }
         [Required(ErrorMessage = "Este campo no puede estar vacio")]
         public int UserID { get; set; }
+        [Required(ErrorMessage = "Este campo no puede estar vacio")]
         [DataType(DataType.EmailAddress)]
-        [Required(ErrorMessage = "Este campo no puede estar vacio")]
         public string Email { get; set; }
-        [DataType(DataType.Password)]
         [Required(ErrorMessage = "Este campo no puede estar vacio")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
         [Required(ErrorMessage = "Este campo no puede estar vacio")]
         public string Name { get; set; }
@@ -33,8 +34,6 @@ namespace QuickWorkshop.Models
         public string Status { get; set; }
         public string LoginError { get; set; }
         public string AddUError { get; set; }
-
-
 
         public virtual ICollection<order> orders { get; set; }
     }
