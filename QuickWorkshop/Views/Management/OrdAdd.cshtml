@@ -40,7 +40,7 @@
             <h2>Gestión</h2>
         </div>
         <div class="iconos">
-            <div class="cajaadd">
+            <div class="cajaadd" style="opacity: 0">
                 <img src="~/Design/Orders/img/add.png" alt="">
             </div>
         </div>
@@ -50,7 +50,7 @@
                 <h2>Módulos</h2>
                 <div class="icono">
                     <span>Add</span>
-                    <div class="cajaadd">
+                    <div class="cajaadd" style="opacity: 0">
                         <img src="~/Design/Orders/img/add.png" alt="">
                     </div>
                 </div>
@@ -82,8 +82,12 @@
                     <label class="ordern">Factura #@Model.order.OrderId</label>
                 </div>
                 <div class="OrdInfo">
-                    @Html.EditorFor(model => model.order.CustomerId, new { htmlAttributes = new { @placeholder = "Cedula Cliente", @Value = "" } })
+                    @using (Ajax.BeginForm("AddCustomerId", "Management",new AjaxOptions {UpdateTargetId="at",InsertionMode=InsertionMode.Replace }))
+                    {
+                    <input type="number" placeholder="Cedula Cliente" value="" name="CustomerId">
+                    <button type="submit">Guardar Cedula</button>
                     <label>Estado: @Model.order.Status</label>
+                    }
                 </div>
                 <div class="OrdInserts">
                     <div class="Add">
@@ -95,7 +99,7 @@
                                     <option value="@p.ProductId">@p.Name</option>
                                     }
                                 </select>
-                                <input class="ordins" type="number" placeholder="Quantity" value="" name="Quantity" required="required">
+                                <input class="ordins" type="number" placeholder="Cantidad" value="" name="Quantity" required="required">
                                 <Button class="ordins" type="submit">Agregar Producto</Button>
                         }
                         </div>

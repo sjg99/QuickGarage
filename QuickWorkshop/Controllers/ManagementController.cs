@@ -223,6 +223,11 @@ namespace QuickWorkshop.Controllers
             DetailsLists.ordsd.Add(ordersdetailmodel);
             return PartialView("_AddedDet", detailsLists());
         }
+        public ActionResult AddCustomerId (order ordermodel)
+        {
+            OrdersLoading.ord.CustomerId = ordermodel.CustomerId;           
+            return PartialView("_AddedDet", detailsLists());
+        }
         public ActionResult LogOut()
         {
             Session.Abandon();

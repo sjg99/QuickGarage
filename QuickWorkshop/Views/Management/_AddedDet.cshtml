@@ -5,8 +5,19 @@
     <label class="ordern">Factura #@Model.order.OrderId</label>
 </div>
 <div class="OrdInfo">
-    @Html.EditorFor(model => model.order.CustomerId, new { htmlAttributes = new { @placeholder = "Cedula Cliente", @Value = "" } })
-    <label>Estado: @Model.order.Status</label>
+    @using (Ajax.BeginForm("AddCustomerId", "Management", new AjaxOptions { UpdateTargetId = "at", InsertionMode = InsertionMode.Replace }))
+    {
+        if (Model.order.CustomerId != 0)
+        {
+            <span>Cedula Cliente: @Model.order.CustomerId</span>
+            <label>Estado: @Model.order.Status</label>
+        }
+        else
+        {
+            <input type="number" placeholder="Cedula Cliente" value="" name="CustomerId">
+            <button type="submit">Guardar Cedula</button>
+        }
+    }
 </div>
 <div class="OrdInserts">
     <div class="Add">

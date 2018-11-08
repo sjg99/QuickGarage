@@ -28,8 +28,9 @@ namespace QuickWorkshop.ViewModels
                 catch
                 {
                     ord.OrderId = 1;
-                }                
-                ord.Date = DateTime.Now.ToString();
+                }
+                DateTime dt = DateTime.UtcNow.AddHours(-5);               
+                ord.Date = dt.ToString();
                 ord.Status = "Por Iniciar";
                 ord.ProductQ = 0;
                 ord.ServiceQ = 0;
