@@ -25,7 +25,7 @@ namespace QuickWorkshop.ViewModels
                                
                 
                 DateTime dt = DateTime.UtcNow.AddHours(-5);               
-                ord.Date = dt.ToString();
+                ord.Date = dt.ToShortDateString();
                 ord.Status = "Por Iniciar";
                 ord.ProductQ = 0;
                 ord.ServiceQ = 0;

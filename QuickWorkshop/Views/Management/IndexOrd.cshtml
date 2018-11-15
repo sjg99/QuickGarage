@@ -86,20 +86,12 @@
                         </div>
                         <div class="caja-2">
                             <div class="info">
-                                @using (Ajax.BeginForm("ViewOrd", new AjaxOptions { UpdateTargetId = "AddWindow", InsertionMode = InsertionMode.Replace }))
+                                @using (Html.BeginForm("ViewOrd", "Management", FormMethod.Post))
                                 {
-                                    @Html.HiddenFor(m => m.orders.First().OrderId, new { Value = x.OrderId })
-                                    @Html.HiddenFor(m => m.orders.First().Date, new { Value = x.Date })
-                                    @Html.HiddenFor(m => m.orders.First().TotalPrice, new { Value = x.TotalPrice })
-                                    @Html.HiddenFor(m => m.orders.First().ProductQ, new { Value = x.ProductQ })
-                                    @Html.HiddenFor(m => m.orders.First().ServiceQ, new { Value = x.ServiceQ })
-                                    @Html.HiddenFor(m => m.orders.First().Status, new { Value = x.Status })
-                                    @Html.HiddenFor(m => m.orders.First().UserId, new { Value = x.UserId })
-                                    @Html.HiddenFor(m => m.orders.First().CustomerId, new { Value = x.CustomerId })
-
+                                    @Html.HiddenFor(m => m.orders.First().OrderId, new { Value = x.OrderId })                                  
                                     <h3 class="titulo">Factura #@x.OrderId Cliente: @x.CustomerId</h3>
                                     <p>Precio Total: @x.TotalPrice</p>                                    
-                                    <button class="edit" type="submit">Editar</button>
+                                    <button class="edit" type="submit">Ver</button>
                                 }
                             </div>
                         </div>

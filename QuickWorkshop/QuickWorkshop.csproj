@@ -211,6 +211,7 @@
     <Compile Include="ViewModels\DetailsLists.cs" />
     <Compile Include="ViewModels\OrdersLoading.cs" />
     <Compile Include="ViewModels\ManagementLoading.cs" />
+    <Compile Include="ViewModels\ViewOrderLoading.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -233,6 +234,7 @@
     <Content Include="Views\Management\IndexOrd.cshtml" />
     <Content Include="Views\Management\OrdAdd.cshtml" />
     <Content Include="Views\Management\_AddedDet.cshtml" />
+    <Content Include="Views\Management\OrdView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

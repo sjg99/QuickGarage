@@ -1,0 +1,147 @@
+﻿@model QuickWorkshop.ViewModels.ViewOrderLoading
+@{
+    Layout = null;
+    if (Session["email"] == null)
+    {
+        Response.Redirect("~/");
+    }    
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="~/Design/Orders/Style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <title>QPanel | Facturacion</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="container">
+                    <img src="~/Design/Orders/img/Logo2.png" alt="">
+                </div>
+            </div>
+            <div class="perfil">
+                <div class="contenedor-prof">
+                    <p>@Session["name"]</p>
+                    <img src="~/Design/Orders/img/user.png" alt="">
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="infoBar" id="ib">
+        <div class="ajustes">
+            <h2>Gestión</h2>
+        </div>
+        <div class="iconos">
+            <div class="cajaadd" style="opacity: 0">
+                <img src="~/Design/Orders/img/add.png" alt="">
+            </div>
+        </div>
+        <div class="dropicon"><a href="javascript:topnav();">&#9776;</a></div>
+        <div class="izq">
+            <div class="txtContenedor">
+                <h2>Módulos</h2>
+                <div class="icono">
+                    <span>Add</span>
+                    <div class="cajaadd" style="opacity: 0">
+                        <img src="~/Design/Orders/img/add.png" alt="">
+                    </div>
+                </div>
+                @Html.ActionLink("Productos", "GetProducts")
+                @Html.ActionLink("Servicios", "GetServices")
+                @Html.ActionLink("Empleados", "GetUsers")
+                @Html.ActionLink("Facturación", "GetOrders")
+                <h2>Cuenta</h2>
+                <a href="@Url.Action("LogOut", "Management")">Cerrar Sesión</a>
+            </div>
+        </div>
+    </main>    
+    <section class="contenedor-padre">
+        <div class="izq">
+            <div class="txtContenedor">
+                <h2>Módulos</h2>
+                @Html.ActionLink("Productos", "GetProducts")
+                @Html.ActionLink("Servicios", "GetServices")
+                @Html.ActionLink("Empleados", "GetUsers")
+                @Html.ActionLink("Facturación", "GetOrders")
+                <h2>Cuenta</h2>
+                <a href="@Url.Action("LogOut", "Management")">Cerrar Sesión</a>
+            </div>
+        </div>
+        <div class="derecha">
+            <div class="contenedor" id="at">
+                <div class="OrdHeader">
+                    <label class="date">@Model.order.Date</label>
+                    <label class="ordern">Factura #@Model.order.OrderId</label>
+                </div>
+                <div class="OrdInfo">
+                   
+                            <span>Cedula Cliente: @Model.order.CustomerId</span>
+                            <label>Estado: @Model.order.Status</label>
+                      
+                </div>                
+                <div class="AddedTables">
+                    <div class="ptable">
+                        <table>
+                            <tr>
+                                <th>ID Producto</th>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                            </tr>
+                            @foreach (var p in Model.orderpdetails)
+                            {
+                                <tr>
+                                    <td>@p.Productid</td>
+                                    <td>@Model.products.Find(x => x.ProductId == p.Productid).Name</td>
+                                    <td>@p.Quantity</td>
+                                    <td>@p.Price</td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                    <div class="stable">
+                        <table>
+                            <tr>
+                                <th>ID Servicio</th>
+                                <th>Servicio</th>
+                                <th>Precio</th>
+                            </tr>
+                            @foreach (var s in Model.ordersdetails)
+                            {
+                                <tr>
+                                    <td>@s.ServiceId</td>
+                                    <td>@Model.services.Find(x => x.ServiceID == s.ServiceId).Name</td>
+                                    <td>@s.Price</td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+                <div class="OrdTotals">
+                    <div class="Totals">
+                        <label>Cantidad Productos: @Model.order.ProductQ</label>
+                        <label>Cantidad de Servicios: @Model.order.ServiceQ</label>
+                        <label class="tp">Total: @Model.order.TotalPrice</label>
+                    </div>
+                    
+                </div>
+            </div>
+            </div>
+        </section>
+        <script src="/Scripts/jquery-3.3.1.js"></script>
+        <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        <script src="~/Scripts/Orders.js"></script>
+    </body>
+    </html>
+    <!-- https://dribbble.com/shots/1986474-Application-Modul -->

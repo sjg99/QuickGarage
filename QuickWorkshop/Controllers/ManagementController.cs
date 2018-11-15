@@ -28,6 +28,11 @@ namespace QuickWorkshop.Controllers
             DetailsLists dl = new DetailsLists();
             return dl;
         }
+        private ViewOrderLoading viewOrder(int id)
+        {
+            ViewOrderLoading vo = new ViewOrderLoading(id);
+            return vo;
+        }
         public ActionResult Index()
         {
             return View(managementLoading());
@@ -257,6 +262,10 @@ namespace QuickWorkshop.Controllers
                 }
 
             }            
+        }
+        public ActionResult ViewOrd(order ordermodel)
+        {
+            return View("OrdView", viewOrder(ordermodel.OrderId));
         }
         public ActionResult LogOut()
         {
